@@ -51,8 +51,23 @@
       maxZoom: 2, 
     });
 
+    const isPortrait = window.innerHeight > window.innerWidth;
+    const isMobile = window.matchMedia("(max-width: 768px)").matches;
+
+
     L.imageOverlay('map.jpg', bounds).addTo(map);
-    map.fitBounds(bounds);
+    
+    
+    if (isMobile && isPortrait) {
+      map.fitBounds(bounds, {
+        paddingTopLeft: [0, 60],
+        paddingBottomRight: [0, 60]
+      });
+      map.zoomOut(0.5); // fine-tune (try 0.5–0.8)
+    } else {
+      map.fitBounds(bounds);
+    }
+
 
 
     // FOR ADDING COORDINATES
