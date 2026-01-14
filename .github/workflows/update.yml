@@ -2,7 +2,7 @@ name: Update Cypress status.json
 
 on:
   schedule:
-    - cron: "*/10 * * * *"   # every 10 minutes, 24/7 (simple + reliable)
+    - cron: "*/5 * * * *"   # every 5 minutes, 24/7
   workflow_dispatch:
 
 permissions:
