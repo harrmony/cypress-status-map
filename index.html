@@ -28,6 +28,31 @@
     .hold { background: #f1c40f; }
     .closed { background: #ff6447; }
     .unknown { background: #9b59b6; }
+
+    .footer-disclaimer {
+      position: absolute;
+      left: 10px;
+      bottom: 8px;
+      z-index: 1000;
+      font-size: 11px;
+      line-height: 1.3;
+      color: rgba(0, 0, 0, 0.55);
+      background: rgba(255,255,255,0.7);
+      padding: 6px 8px;
+      border-radius: 8px;
+      max-width: 70%;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    }
+
+    .footer-disclaimer a {
+      color: rgba(0, 0, 0, 0.65);
+      text-decoration: underline;
+    }
+
+    .footer-disclaimer a:hover {
+      color: rgba(0, 0, 0, 0.85);
+    }
+
   </style>
 </head>
 <body>
@@ -207,5 +232,15 @@
       alert("Failed to load overlays/status. Check console.");
     });
   </script>
+
+  <div class="footer-disclaimer">
+  Unofficial local-created map. Status data from Cypress Mountain Reports.
+  For official information, always refer to
+  <a href="https://www.cypressmountain.com" target="_blank" rel="noopener">
+    cypressmountain.com
+  </a>.
+  </div>
+
+
 </body>
 </html>
