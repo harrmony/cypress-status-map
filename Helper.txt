@@ -1,0 +1,8 @@
+run API call -- 
+node scripts/fetch-status.mjs
+
+Allow pushing to web -- 
+Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+
+Push to web -- 
+npx serve public

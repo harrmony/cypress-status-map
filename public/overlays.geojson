@@ -1,0 +1,30 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+   {
+      "type": "Feature",
+      "properties": { "kind": "lift", "name": "Eagle Express" },
+      "geometry": { "type": "LineString", "coordinates": [[915, 352], [693, 750]] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "kind": "lift", "name": "Lions Express" },
+      "geometry": { "type": "LineString", "coordinates": [[1562, 232], [1483, 577], [1429, 664]] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "kind": "lift", "name": "Easy Rider" },
+      "geometry": { "type": "LineString", "coordinates": [[1717, 241], [1818, 351]] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "kind": "lift", "name": "Sky Quad" },
+      "geometry": { "type": "LineString", "coordinates": [[1303, 669], [1144, 772]] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "kind": "lift", "name": "Midway Chair" },
+      "geometry": { "type": "LineString", "coordinates": [[1677, 251], [1636, 416]] }
+    }
+  ]
+}

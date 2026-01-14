@@ -1,0 +1,180 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cypress Lift/Run Status Map</title>
+
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://unpkg.com/leaflet-curve@1.0.0/leaflet.curve.js"></script>
+
+
+  <style>
+    html, body, #map { height: 100%; margin: 0; }
+    .legend {
+      position: absolute; top: 12px; left: 12px; z-index: 1000;
+      background: rgba(255,255,255,0.92); padding: 10px 12px; border-radius: 10px;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      font-size: 14px;      
+    }
+    
+    .leaflet-top.leaflet-left {
+      top: 135px;
+    }
+
+    .dot { display:inline-block; width:10px; height:10px; border-radius:50%; margin-right:8px; }
+    .open { background: #2ecc71; }
+    .hold { background: #f1c40f; }
+    .closed { background: #ff6447; }
+    .unknown { background: #9b59b6; }
+  </style>
+</head>
+<body>
+  <div id="map"></div>
+  <div class="legend">
+    <div><span class="dot open"></span>Open</div>
+    <div><span class="dot hold"></span>On-hold</div>
+    <div><span class="dot closed"></span>Closed</div>
+    <div style="margin-top:8px; font-size:12px; opacity:.8" id="updated"></div>
+  </div>
+
+  <script>
+    const IMAGE_WIDTH = 2000;
+    const IMAGE_HEIGHT = 857;
+
+    const bounds = [[0,0], [IMAGE_HEIGHT, IMAGE_WIDTH]]; // [y,x]
+
+    const map = L.map('map', {
+      crs: L.CRS.Simple,
+      minZoom: -1,
+      maxZoom: 2, 
+    });
+
+    L.imageOverlay('map.jpg', bounds).addTo(map);
+    map.fitBounds(bounds);
+
+
+    // FOR ADDING COORDINATES
+    //  map.on('click', (e) => {
+    //    // e.latlng is in image coordinates for CRS.Simple
+    //    const x = e.latlng.lng;
+    //    const y = e.latlng.lat;
+    //    console.log(`Clicked: [${Math.round(x)}, ${Math.round(y)}]`);
+    //  });
+
+    
+    function normalizeStyle(status, kind) {
+      const weight = kind === "lift" ? 7 : 5;
+      if (status === "open") return { weight, opacity: 0.45 };
+      if (status === "on-hold") return { weight, opacity: 0.35, dashArray: "8 10" };
+      if (status === "closed") return { weight, opacity: 0.7 };
+      return { weight, opacity: 0.5, dashArray: "2 8" };
+    }
+
+    async function loadAll() {
+      const [overlays, curvesData, status] = await Promise.all([
+        fetch('overlays.geojson?ts=' + Date.now()).then(r => r.json()),
+        fetch('curves.json?ts=' + Date.now()).then(r => r.json()),
+        fetch('status.json?ts=' + Date.now()).then(r => r.json())
+      ]);
+
+      document.getElementById('updated').textContent =
+        status.source_updated ? `Updated: ${status.source_updated}` : `Updated: (unknown)`;
+
+      function getFeatureStatus(feature) {
+        const name = feature.properties.name;
+        const kind = feature.properties.kind;
+        if (kind === "lift") return status.lifts?.[name] ?? "unknown";
+        if (kind === "trail") return status.trails?.[name] ?? "unknown";
+        return "unknown";
+      }
+
+      // 1) Draw straight (GeoJSON) overlays
+      L.geoJSON(overlays, {
+        style: (feature) => {
+          const s = getFeatureStatus(feature);
+          const kind = feature.properties.kind;
+
+          const color =
+            s === "open" ? "#2ecc71" :
+            s === "on-hold" ? "#f1c40f" :
+            s === "closed" ? "#ff6447" :
+            "#9b59b6";
+
+          return { color, ...normalizeStyle(s, kind) };
+        },
+        onEachFeature: (feature, layer) => {
+          const s = getFeatureStatus(feature);
+          layer.bindTooltip(`${feature.properties.name} — ${s}`, { sticky: true });
+        }
+      }).addTo(map);
+
+      // 2) Draw curved overlays on top (THIS is step 6)
+      drawCurvedOverlays(curvesData, status);
+    }
+
+
+    // FOR LOADING CURVES
+    // Helper: your data uses [x,y], Leaflet wants [lat,lng] = [y,x]
+    const XY = (x, y) => [y, x];
+
+    function catmullRomToBezierPath(pointsXY, tension = 0.8) {
+      if (!pointsXY || pointsXY.length < 2) throw new Error("Need at least 2 points");
+
+      const pts = pointsXY.map(([x, y]) => ({ x, y }));
+      const p = [pts[0], ...pts, pts[pts.length - 1]]; // duplicate ends
+      const path = ["M", XY(p[1].x, p[1].y)];
+
+      const k = tension / 6;
+
+      for (let i = 1; i < p.length - 2; i++) {
+        const p0 = p[i - 1], p1 = p[i], p2 = p[i + 1], p3 = p[i + 2];
+
+        const cp1x = p1.x + (p2.x - p0.x) * k;
+        const cp1y = p1.y + (p2.y - p0.y) * k;
+
+        const cp2x = p2.x - (p3.x - p1.x) * k;
+        const cp2y = p2.y - (p3.y - p1.y) * k;
+
+        path.push("C", XY(cp1x, cp1y), XY(cp2x, cp2y), XY(p2.x, p2.y));
+      }
+
+      return path;
+    }
+
+    function drawCurvedOverlays(curvesData, status) {
+      const curves = curvesData?.curves ?? [];
+
+      for (const f of curves) {
+        const s =
+          f.kind === "lift" ? (status.lifts?.[f.name] ?? "unknown") :
+          f.kind === "trail" ? (status.trails?.[f.name] ?? "unknown") :
+          "unknown";
+
+        const color =
+          s === "open" ? "#2ecc71" :
+          s === "on-hold" ? "#f1c40f" :
+          s === "closed" ? "#ff6447" :
+          "#9b59b6";
+
+        const path = catmullRomToBezierPath(f.points, f.tension ?? 0.8);
+
+        const layer = L.curve(path, {
+          color,
+          ...normalizeStyle(s, f.kind) // reuses your existing styling rules
+        }).addTo(map);
+
+        layer.bindTooltip(`${f.name} — ${s}`, { sticky: true });
+      }
+    }
+
+
+
+    loadAll().catch(err => {
+      console.error(err);
+      alert("Failed to load overlays/status. Check console.");
+    });
+  </script>
+</body>
+</html>
