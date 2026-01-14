@@ -76,7 +76,7 @@
       const [overlays, curvesData, status] = await Promise.all([
         fetch('overlays.geojson?ts=' + Date.now()).then(r => r.json()),
         fetch('curves.json?ts=' + Date.now()).then(r => r.json()),
-        fetch('status.json?ts=' + Date.now()).then(r => r.json())
+        fetch('https://raw.githubusercontent.com/harrmony/cypress-status-map/data/status.json?ts=' + Date.now()).then(r => r.json())
       ]);
 
       document.getElementById('updated').textContent =
