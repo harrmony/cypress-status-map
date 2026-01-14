@@ -47,7 +47,7 @@
 
     const map = L.map('map', {
       crs: L.CRS.Simple,
-      minZoom: -1,
+      minZoom: -3,
       maxZoom: 2, 
     });
 
@@ -56,18 +56,33 @@
     const isMobile = window.matchMedia("(max-width: 768px)").matches;
 
 
-    L.imageOverlay('map.jpg', bounds).addTo(map);
-    
-    
-    if (isMobile && isPortrait) {
-      map.fitBounds(bounds, {
-        paddingTopLeft: [0, 60],
-        paddingBottomRight: [0, 60]
-      });
-      map.zoomOut(2);
-    } else {
-      map.fitBounds(bounds);
+    const overlay = L.imageOverlay('map.jpg', bounds).addTo(map);
+
+    function isMobilePortrait() {
+      return window.matchMedia("(max-width: 768px)").matches &&
+            window.matchMedia("(orientation: portrait)").matches;
     }
+
+    function applyInitialView() {
+      map.invalidateSize();
+
+      if (isMobilePortrait()) {
+        map.fitBounds(bounds, { paddingTopLeft: [0, 80], paddingBottomRight: [0, 80] });
+        map.setZoom(-2.5); // portrait start
+      } else {
+        map.fitBounds(bounds);
+        map.setZoom(-1);   // desktop (and mobile landscape) start
+      }
+    }
+
+    // Wait for the image to actually load, then fit
+    overlay.once("load", () => {
+      applyInitialView();
+    });
+
+    // If the image is cached and load already happened, still apply
+    setTimeout(applyInitialView, 0);
+
 
 
 
