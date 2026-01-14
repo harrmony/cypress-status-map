@@ -38,6 +38,5 @@ const out = {
   trails
 };
 
-await fs.mkdir("public", { recursive: true });
-await fs.writeFile("public/status.json", JSON.stringify(out, null, 2));
-console.log("Wrote public/status.json");
+await fs.writeFile("status.json", JSON.stringify(out, null, 2));
+console.log("Wrote status.json");
