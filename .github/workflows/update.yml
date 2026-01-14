@@ -2,7 +2,7 @@ name: Update Cypress status.json
 
 on:
   schedule:
-    - cron: "*/50 * * * *" # changed from 5 minutes   
+    - cron: "*/5 * * * *"    
   workflow_dispatch:
 
 permissions:
@@ -25,4 +25,4 @@ jobs:
           git config user.email "status-bot@users.noreply.github.com"
           git add status.json
           git commit -m "Update status.json" || exit 0
-          git push
+          git push origin HEAD:data
