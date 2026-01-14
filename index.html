@@ -51,6 +51,7 @@
       maxZoom: 2, 
     });
 
+
     const isPortrait = window.innerHeight > window.innerWidth;
     const isMobile = window.matchMedia("(max-width: 768px)").matches;
 
@@ -63,7 +64,7 @@
         paddingTopLeft: [0, 60],
         paddingBottomRight: [0, 60]
       });
-      map.zoomOut(0.5); // fine-tune (try 0.5–0.8)
+      map.zoomOut(2);
     } else {
       map.fitBounds(bounds);
     }
