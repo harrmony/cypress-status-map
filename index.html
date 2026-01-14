@@ -47,7 +47,7 @@
 
     const map = L.map('map', {
       crs: L.CRS.Simple,
-      minZoom: -3,
+      minZoom: -4,
       maxZoom: 2, 
     });
 
@@ -68,7 +68,7 @@
 
       if (isMobilePortrait()) {
         map.fitBounds(bounds, { paddingTopLeft: [0, 80], paddingBottomRight: [0, 80] });
-        map.setZoom(-2.5); // portrait start
+        map.setZoom(-3); // portrait start
       } else {
         map.fitBounds(bounds);
         map.setZoom(-1);   // desktop (and mobile landscape) start
