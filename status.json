@@ -1,8 +1,8 @@
 {
-  "fetched_at": "2026-01-15T01:27:13.201Z",
-  "source_updated": "2026-01-14T18:56:38Z",
+  "fetched_at": "2026-01-15T03:19:39.230Z",
+  "source_updated": "2026-01-15T01:29:48Z",
   "lifts_updated": "2026-01-14T18:56:38Z",
-  "trails_updated": "2026-01-14T18:56:38Z",
+  "trails_updated": "2026-01-15T01:29:48Z",
   "operations": {
     "resortStatus": "Open",
     "openTime": null,
@@ -27,7 +27,7 @@
     "Lower Fork": "open",
     "PGS": "open",
     "Cascade": "open",
-    "Unrun": "open",
+    "Unrun": "closed",
     "Trumpeter": "closed",
     "Lower Trumpeter": "closed",
     "Hose Side": "closed",
