@@ -82,7 +82,7 @@
   </div>
 
   <script>
-    //const IMAGE_WIDTH = 2000;
+    const IMAGE_WIDTH = 2000;
     const IMAGE_HEIGHT = 857;
 
     const bounds = [[0,0], [IMAGE_HEIGHT, IMAGE_WIDTH]]; // [y,x]
@@ -94,8 +94,8 @@
     });
 
 
-    //const isPortrait = window.innerHeight > window.innerWidth;
-    //const isMobile = window.matchMedia("(max-width: 768px)").matches;
+    const isPortrait = window.innerHeight > window.innerWidth;
+    const isMobile = window.matchMedia("(max-width: 768px)").matches;
 
 
     const overlay = L.imageOverlay('map.jpg', bounds).addTo(map);
