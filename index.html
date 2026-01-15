@@ -8,6 +8,16 @@
   <link rel="apple-touch-icon" href="favicon.png">
 
 
+    <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-WJ14QK5M5Q"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-WJ14QK5M5Q', { anonymize_ip: true });
+  </script>
+
+
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script src="https://unpkg.com/leaflet-curve@1.0.0/leaflet.curve.js"></script>
@@ -57,17 +67,10 @@
     }
 
   </style>
+
 </head>
 
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-WJ14QK5M5Q"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  gtag('config', 'G-WJ14QK5M5Q');
-</script>
 
 <body>
   <div id="map"></div>
@@ -79,7 +82,7 @@
   </div>
 
   <script>
-    const IMAGE_WIDTH = 2000;
+    //const IMAGE_WIDTH = 2000;
     const IMAGE_HEIGHT = 857;
 
     const bounds = [[0,0], [IMAGE_HEIGHT, IMAGE_WIDTH]]; // [y,x]
@@ -91,8 +94,8 @@
     });
 
 
-    const isPortrait = window.innerHeight > window.innerWidth;
-    const isMobile = window.matchMedia("(max-width: 768px)").matches;
+    //const isPortrait = window.innerHeight > window.innerWidth;
+    //const isMobile = window.matchMedia("(max-width: 768px)").matches;
 
 
     const overlay = L.imageOverlay('map.jpg', bounds).addTo(map);
@@ -267,18 +270,31 @@
     });
   </script>
 
+  <script>
+    function trackClick(label) {
+      if (typeof gtag === "function") {
+        gtag('event', 'outbound_click', {
+          event_category: 'engagement',
+          event_label: label,
+          transport_type: 'beacon'
+        });
+      }
+    }
+  </script>
+
   <div class="footer-disclaimer">
   Unofficial map by <a href="https://www.linkedin.com/in/harrisonmorris/"
      target="_blank"
      rel="noopener"
-     class="author-link">
+     class="author-link"
+     onclick="trackClick('linkedin')">
     Harry Morris
     </a>. For official information, refer to
-    <a href="https://www.cypressmountain.com" target="_blank" rel="noopener">
+    <a href="https://www.cypressmountain.com" target="_blank" rel="noopener" onclick="trackClick('cypress_official')">
       Cypress Mountain
     </a>
      Reports. 
-    <a href="https://buymeacoffee.com/harrmony" target="_blank" rel="noopener">
+    <a href="https://buymeacoffee.com/harrmony" target="_blank" rel="noopener" onclick="trackClick('buy_me_a_coffee')">
       Buy me a beer
     </a> if you want to support this project.
   </div>
