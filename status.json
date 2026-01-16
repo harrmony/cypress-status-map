@@ -1,8 +1,8 @@
 {
-  "fetched_at": "2026-01-16T04:31:48.612Z",
-  "source_updated": "2026-01-16T01:04:28Z",
-  "lifts_updated": "2026-01-16T01:04:28Z",
-  "trails_updated": "2026-01-16T01:04:28Z",
+  "fetched_at": "2026-01-16T05:00:10.812Z",
+  "source_updated": "2026-01-16T04:47:26Z",
+  "lifts_updated": "2026-01-16T04:47:26Z",
+  "trails_updated": "2026-01-16T04:47:26Z",
   "operations": {
     "resortStatus": "Open",
     "openTime": null,
@@ -17,7 +17,7 @@
     "Lions Express": "open",
     "Raven Ridge": "closed",
     "Easy Rider": "open",
-    "Sky Quad": "open",
+    "Sky Quad": "closed",
     "Midway Chair": "open"
   },
   "trails": {
