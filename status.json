@@ -1,8 +1,8 @@
 {
-  "fetched_at": "2026-01-16T05:00:10.812Z",
-  "source_updated": "2026-01-16T04:47:26Z",
-  "lifts_updated": "2026-01-16T04:47:26Z",
-  "trails_updated": "2026-01-16T04:47:26Z",
+  "fetched_at": "2026-01-16T05:35:58.634Z",
+  "source_updated": "2026-01-16T05:00:26Z",
+  "lifts_updated": "2026-01-16T05:00:04Z",
+  "trails_updated": "2026-01-16T05:00:26Z",
   "operations": {
     "resortStatus": "Open",
     "openTime": null,
@@ -18,7 +18,7 @@
     "Raven Ridge": "closed",
     "Easy Rider": "open",
     "Sky Quad": "closed",
-    "Midway Chair": "open"
+    "Midway Chair": "closed"
   },
   "trails": {
     "Panorama": "open",
@@ -72,11 +72,11 @@
     "Black Fly": "closed",
     "Shore Line": "closed",
     "Runway": "open",
-    "T-33": "open",
-    "Horsefly Canyon": "open",
-    "Glades": "open",
-    "Tomcat": "open",
-    "Ripcord": "open",
+    "T-33": "closed",
+    "Horsefly Canyon": "closed",
+    "Glades": "closed",
+    "Tomcat": "closed",
+    "Ripcord": "closed",
     "Top Gun": "closed",
     "Shuttle": "open",
     "Blaster": "open",
