@@ -1,8 +1,8 @@
 {
-  "fetched_at": "2026-01-17T20:27:23.495Z",
-  "source_updated": "2026-01-17T16:25:49Z",
+  "fetched_at": "2026-01-17T20:45:08.834Z",
+  "source_updated": "2026-01-17T20:36:31Z",
   "lifts_updated": "2026-01-17T16:13:47Z",
-  "trails_updated": "2026-01-17T16:13:47Z",
+  "trails_updated": "2026-01-17T20:36:31Z",
   "operations": {
     "resortStatus": "Open",
     "openTime": null,
@@ -57,7 +57,7 @@
     "Bowen West Glades": "closed",
     "Under the Volcano Glades": "closed",
     "Gibson Glades": "closed",
-    "Cat Track (lower)": "closed",
+    "Cat Track (lower)": "open",
     "Benny's": "closed",
     "Crazy Raven": "closed",
     "Lower Coyote 7": "closed",
