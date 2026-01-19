@@ -1,10 +1,10 @@
 {
-  "fetched_at": "2026-01-19T15:01:51.850Z",
-  "source_updated": "2026-01-19T06:56:59Z",
-  "lifts_updated": "2026-01-19T06:56:59Z",
-  "trails_updated": "2026-01-19T02:44:07Z",
+  "fetched_at": "2026-01-19T15:38:07.960Z",
+  "source_updated": "2026-01-19T15:21:25Z",
+  "lifts_updated": "2026-01-19T15:19:48Z",
+  "trails_updated": "2026-01-19T15:21:25Z",
   "operations": {
-    "resortStatus": "Closed",
+    "resortStatus": "On Hold",
     "openTime": null,
     "closeTime": null,
     "nightOpenTime": null,
@@ -13,7 +13,7 @@
     "summerLiftStatus": null
   },
   "lifts": {
-    "Eagle Express": "closed",
+    "Eagle Express": "on-hold",
     "Lions Express": "closed",
     "Raven Ridge": "closed",
     "Easy Rider": "closed",
