@@ -1,8 +1,8 @@
 {
-  "fetched_at": "2026-01-21T23:53:36.131Z",
-  "source_updated": "2026-01-21T19:02:29Z",
+  "fetched_at": "2026-01-22T01:45:47.608Z",
+  "source_updated": "2026-01-22T00:19:03Z",
   "lifts_updated": "2026-01-21T17:55:07Z",
-  "trails_updated": "2026-01-21T19:02:29Z",
+  "trails_updated": "2026-01-22T00:19:03Z",
   "operations": {
     "resortStatus": "Open",
     "openTime": null,
@@ -41,7 +41,7 @@
     "Primary Power": "open",
     "Horizon By-Pass": "open",
     "Lower Bowen": "open",
-    "Hutch": "open",
+    "Hutch": "closed",
     "Upper Bowen": "closed",
     "Bowen Face": "closed",
     "Gibsons": "open",
