@@ -1,10 +1,10 @@
 {
-  "fetched_at": "2026-01-22T14:59:39.137Z",
-  "source_updated": "2026-01-22T06:24:58Z",
-  "lifts_updated": "2026-01-22T06:24:58Z",
-  "trails_updated": "2026-01-22T05:41:47Z",
+  "fetched_at": "2026-01-22T15:41:35.466Z",
+  "source_updated": "2026-01-22T15:33:05Z",
+  "lifts_updated": "2026-01-22T15:04:16Z",
+  "trails_updated": "2026-01-22T15:33:05Z",
   "operations": {
-    "resortStatus": "Closed",
+    "resortStatus": "Open",
     "openTime": null,
     "closeTime": null,
     "nightOpenTime": null,
@@ -13,12 +13,12 @@
     "summerLiftStatus": null
   },
   "lifts": {
-    "Eagle Express": "closed",
-    "Lions Express": "closed",
+    "Eagle Express": "open",
+    "Lions Express": "open",
     "Raven Ridge": "closed",
-    "Easy Rider": "closed",
-    "Sky Quad": "closed",
-    "Midway Chair": "closed"
+    "Easy Rider": "open",
+    "Sky Quad": "open",
+    "Midway Chair": "open"
   },
   "trails": {
     "Panorama": "open",
@@ -41,7 +41,7 @@
     "Primary Power": "open",
     "Horizon By-Pass": "open",
     "Lower Bowen": "open",
-    "Hutch": "closed",
+    "Hutch": "open",
     "Upper Bowen": "closed",
     "Bowen Face": "closed",
     "Gibsons": "open",
