@@ -1,8 +1,8 @@
 {
-  "fetched_at": "2026-01-24T23:18:10.414Z",
-  "source_updated": "2026-01-24T17:02:36Z",
+  "fetched_at": "2026-01-24T23:36:39.064Z",
+  "source_updated": "2026-01-24T23:32:51Z",
   "lifts_updated": "2026-01-24T17:02:36Z",
-  "trails_updated": "2026-01-24T17:02:36Z",
+  "trails_updated": "2026-01-24T23:32:51Z",
   "operations": {
     "resortStatus": "Open",
     "openTime": null,
@@ -39,7 +39,7 @@
     "Humpty Dumpty": "open",
     "Cat Track (upper)": "open",
     "Primary Power": "open",
-    "Horizon By-Pass": "open",
+    "Horizon By-Pass": "closed",
     "Lower Bowen": "open",
     "Hutch": "open",
     "Upper Bowen": "closed",
