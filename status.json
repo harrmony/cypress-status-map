@@ -1,8 +1,8 @@
 {
-  "fetched_at": "2026-01-25T15:51:42.943Z",
-  "source_updated": "2026-01-25T15:36:38Z",
-  "lifts_updated": "2026-01-25T15:36:14Z",
-  "trails_updated": "2026-01-25T15:36:38Z",
+  "fetched_at": "2026-01-25T16:18:30.873Z",
+  "source_updated": "2026-01-25T16:11:23Z",
+  "lifts_updated": "2026-01-25T16:05:08Z",
+  "trails_updated": "2026-01-25T16:07:37Z",
   "operations": {
     "resortStatus": "Open",
     "openTime": null,
@@ -105,7 +105,7 @@
     "Upper Mobratten": "closed",
     "Russel": "open",
     "Brothers Canyon West": "open",
-    "Five Lakes": "closed",
+    "Five Lakes": "open",
     "Unknown Lake": "closed",
     "Triangle Lake": "open",
     "Triangle Meadows": "open",
