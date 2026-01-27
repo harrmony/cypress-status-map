@@ -1,8 +1,8 @@
 {
-  "fetched_at": "2026-01-27T15:59:22.306Z",
-  "source_updated": "2026-01-27T02:14:25Z",
-  "lifts_updated": "2026-01-27T02:14:25Z",
-  "trails_updated": "2026-01-27T02:14:25Z",
+  "fetched_at": "2026-01-27T16:41:21.811Z",
+  "source_updated": "2026-01-27T16:30:06Z",
+  "lifts_updated": "2026-01-27T16:30:06Z",
+  "trails_updated": "2026-01-27T16:30:06Z",
   "operations": {
     "resortStatus": "Open",
     "openTime": null,
@@ -43,7 +43,7 @@
     "Lower Bowen": "open",
     "Hutch": "open",
     "Upper Bowen": "closed",
-    "Bowen Face": "closed",
+    "Bowen Face": "open",
     "Gibsons": "open",
     "Upper Rainbow": "closed",
     "Bowen West": "closed",
