@@ -1,8 +1,8 @@
 {
-  "fetched_at": "2026-01-31T15:52:56.499Z",
-  "source_updated": "2026-01-31T15:22:06Z",
-  "lifts_updated": "2026-01-31T15:22:06Z",
-  "trails_updated": "2026-01-31T15:22:06Z",
+  "fetched_at": "2026-01-31T16:25:13.607Z",
+  "source_updated": "2026-01-31T16:10:24Z",
+  "lifts_updated": "2026-01-31T16:08:15Z",
+  "trails_updated": "2026-01-31T16:10:24Z",
   "operations": {
     "resortStatus": "Closed",
     "openTime": null,
@@ -95,7 +95,7 @@
     "Lower Powerline": "open",
     "Roller Coaster": "open",
     "Zig-Zag": "closed",
-    "Sidewinder": "open",
+    "Sidewinder": "closed",
     "Upper Telemark": "closed",
     "Upper Wells Grey": "open",
     "Upper Powerline": "open",
