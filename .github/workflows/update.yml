@@ -25,6 +25,7 @@ jobs:
       - run: |
           git config user.name "status-bot"
           git config user.email "status-bot@users.noreply.github.com"
-          git add status.json
+          git add status.json history.json
+          git add event.json 2>/dev/null || true
           git commit -m "Update status.json" || exit 0
           git push origin HEAD:data
