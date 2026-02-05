@@ -138,7 +138,7 @@
 
     
     function normalizeStyle(status, kind) {
-      const weight = kind === "lift" ? 7 : 5;
+      const weight = kind === "lift" ? 8 : 5;
       if (status === "open") return { weight, opacity: 0.45 };
       if (status === "on-hold") return { weight, opacity: 0.35, dashArray: "8 10" };
       if (status === "closed") return { weight, opacity: 0.7 };

@@ -6,3 +6,10 @@ Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
 
 Push to web -- 
 npx serve public
+
+
+Launch 
+
+git add index.html
+git commit -m "repaired image width"
+git push
