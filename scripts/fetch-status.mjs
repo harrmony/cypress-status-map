@@ -300,6 +300,20 @@ const target3pmYesterday = zonedTimeToUtc({
 const snapToday10 = nearestSnapshot(history.snapshots, target10amToday, 90);
 const snapYest3 = nearestSnapshot(history.snapshots, target3pmYesterday, 90);
 
+
+
+// --- Guard: don't allow "today_10am" to be before 10:00am local ---
+const snapToday10Ms = snapToday10 ? Date.parse(snapToday10.fetched_at) : NaN;
+const target10amMs = target10amToday.getTime();
+
+// require the chosen snapshot to be at or after 10:00am (not just "nearest")
+const isToday10Valid = Number.isFinite(snapToday10Ms) && snapToday10Ms >= target10amMs;
+
+// If we don't have a valid >=10am snapshot yet, treat it as missing
+const snapToday10Valid = isToday10Valid ? snapToday10 : null;
+
+
+
 // Build event key so we only fire once per day
 const eventKey = `${ymdKey(todayParts)}_10am_vs_${ymdKey(yesterdayParts)}_3pm`;
 history.meta = history.meta || {};
@@ -307,10 +321,10 @@ const alreadyFired = history.meta.last_event_key === eventKey;
 
 let event = null;
 
-if (snapToday10 && snapYest3 && !alreadyFired) {
+if (snapToday10Valid && snapYest3 && !alreadyFired) {
   // Diff lifts + trails
-  const liftsDiff = diffOpens(snapYest3.lifts, snapToday10.lifts);
-  const trailsDiff = diffOpens(snapYest3.trails, snapToday10.trails);
+  const liftsDiff = diffOpens(snapYest3.lifts, snapToday10Valid.lifts);
+  const trailsDiff = diffOpens(snapYest3.trails, snapToday10Valid.trails);
 
   const openedCount = liftsDiff.opened.length + trailsDiff.opened.length;
   const closedCount = liftsDiff.closed.length + trailsDiff.closed.length;
@@ -326,7 +340,7 @@ if (snapToday10 && snapYest3 && !alreadyFired) {
       created_at: new Date().toISOString(),
       compare: {
         from: { label: "yesterday_3pm", fetched_at: snapYest3.fetched_at },
-        to:   { label: "today_10am", fetched_at: snapToday10.fetched_at }
+        to:   { label: "today_10am", fetched_at: snapToday10Valid.fetched_at }
       },
       summary: {
         opened_total: openedCount,
