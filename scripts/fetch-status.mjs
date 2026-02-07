@@ -34,6 +34,71 @@ function getVancouverParts(date = new Date()) {
   };
 }
 
+
+//HELPER FUNCTIONS FOR CAPTION BUILDING
+
+// ---- Caption helpers (smart grammar) ----
+function plural(n, one, many = one + "s") {
+  return n === 1 ? one : many;
+}
+
+function humanList(items, max = 6) {
+  if (!items || items.length === 0) return null;
+
+  const shown = items.slice(0, max);
+  const more = items.length - shown.length;
+
+  const joined =
+    shown.length === 1 ? shown[0]
+    : shown.length === 2 ? `${shown[0]} and ${shown[1]}`
+    : `${shown.slice(0, -1).join(", ")}, and ${shown[shown.length - 1]}`;
+
+  return more > 0 ? `${joined} (+${more} more)` : joined;
+}
+
+function buildCaption({ liftsOpened, trailsOpened, liftsClosed, trailsClosed }) {
+  const openedTotal = liftsOpened.length + trailsOpened.length;
+  const closedTotal = liftsClosed.length + trailsClosed.length;
+
+  const parts = [];
+
+  // OPENINGS
+  if (openedTotal > 0) {
+    // "1 new opening" vs "5 new openings"
+    parts.push(`Cypress update: ${openedTotal} new ${plural(openedTotal, "opening")}.`);
+
+    const openedBits = [];
+    if (liftsOpened.length > 0) {
+      openedBits.push(`${liftsOpened.length} ${plural(liftsOpened.length, "lift")}: ${humanList(liftsOpened)}`);
+    }
+    if (trailsOpened.length > 0) {
+      openedBits.push(`${trailsOpened.length} ${plural(trailsOpened.length, "run")}: ${humanList(trailsOpened)}`);
+    }
+    parts.push(openedBits.join("   •   "));
+  }
+
+  // CLOSURES
+  if (closedTotal > 0) {
+    const prefix = openedTotal > 0 ? "Also:" : "Cypress update:";
+    parts.push(`${prefix} ${closedTotal} ${plural(closedTotal, "closure")}.`);
+
+    const closedBits = [];
+    if (liftsClosed.length > 0) {
+      closedBits.push(`${liftsClosed.length} ${plural(liftsClosed.length, "lift")}: ${humanList(liftsClosed)}`);
+    }
+    if (trailsClosed.length > 0) {
+      closedBits.push(`${trailsClosed.length} ${plural(trailsClosed.length, "run")}: ${humanList(trailsClosed)}`);
+    }
+    parts.push(closedBits.join(" • "));
+  }
+
+  // If you want hashtags later, add them here.
+  // parts.push("#cypressmountain #skiing #snowboard");
+
+  return parts.join("\n");
+}
+
+
 //HELPERS FOR HISTORICAL DATA
 
 const HISTORY_FILE = "history.json";
@@ -335,6 +400,14 @@ if (snapToday10Valid && snapYest3 && !alreadyFired) {
   const significant = openedCount >= OPEN_THRESHOLD || closedCount >= CLOSE_THRESHOLD;
 
   if (significant) {
+    
+    const caption = buildCaption({
+    liftsOpened: liftsDiff.opened,
+    trailsOpened: trailsDiff.opened,
+    liftsClosed: liftsDiff.closed,
+    trailsClosed: trailsDiff.closed
+    });
+    
     event = {
       key: eventKey,
       created_at: new Date().toISOString(),
@@ -358,7 +431,7 @@ if (snapToday10Valid && snapYest3 && !alreadyFired) {
         screenshot_path: null,
         instagram_posted: false,
         instagram_post_id: null,
-        caption: null
+        caption
       }
     };
 
@@ -373,7 +446,7 @@ if (snapToday10Valid && snapYest3 && !alreadyFired) {
     console.log(`[event] Not significant (opened=${openedCount}, closed=${closedCount})`);
   }
 } else {
-  if (!snapToday10 || !snapYest3) {
+  if (!snapToday10Valid || !snapYest3) {
     console.log("[event] Not enough history near targets yet (need snapshots near 10am today and 3pm yesterday).");
   } else if (alreadyFired) {
     console.log(`[event] Already fired for ${eventKey}`);
@@ -383,4 +456,18 @@ if (snapToday10Valid && snapYest3 && !alreadyFired) {
 // Always write history
 await fs.writeFile(HISTORY_FILE, JSON.stringify(history, null, 2));
 console.log(`Wrote ${HISTORY_FILE} (snapshots=${history.snapshots.length})`);
+
+
+// TEST RUN CODE - REMOVE
+
+// if (process.env.CAPTION_TEST === "1") {
+//   const fake = buildCaption({
+//     liftsOpened: ["Eagle Express"],
+//     trailsOpened: ["Panorama", "Collins", "Gibsons", "Ripcord"],
+//     liftsClosed: [],
+//     trailsClosed: []
+//   });
+//   console.log("\n--- CAPTION_TEST ---\n" + fake + "\n--------------------\n");
+//   process.exit(0);
+// }
 
