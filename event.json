@@ -1,0 +1,45 @@
+{
+  "key": "2026-02-07_10am_vs_2026-02-06_3pm",
+  "created_at": "2026-02-07T16:33:48.385Z",
+  "compare": {
+    "from": {
+      "label": "yesterday_3pm",
+      "fetched_at": "2026-02-06T22:53:48.068Z"
+    },
+    "to": {
+      "label": "today_10am",
+      "fetched_at": "2026-02-07T16:33:48.380Z"
+    }
+  },
+  "summary": {
+    "opened_total": 0,
+    "closed_total": 5,
+    "opened_lifts": 0,
+    "closed_lifts": 4,
+    "opened_trails": 0,
+    "closed_trails": 1
+  },
+  "details": {
+    "lifts": {
+      "opened": [],
+      "closed": [
+        "Eagle Express",
+        "Easy Rider",
+        "Lions Express",
+        "Sky Quad"
+      ]
+    },
+    "trails": {
+      "opened": [],
+      "closed": [
+        "Sitzmark (backside)"
+      ]
+    }
+  },
+  "placeholders": {
+    "screenshot_path": null,
+    "instagram_posted": false,
+    "instagram_post_id": null,
+    "caption": null
+  }
+}
