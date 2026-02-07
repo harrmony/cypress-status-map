@@ -298,7 +298,7 @@ const target3pmYesterday = zonedTimeToUtc({
 
 // Find nearest snapshots
 const snapToday10 = nearestSnapshot(history.snapshots, target10amToday, 90);
-const snapYest3 = nearestSnapshot(history.snapshots, target3pmYesterday, 300); //CHANGE BACK TO 90 AFTER TESTING
+const snapYest3 = nearestSnapshot(history.snapshots, target3pmYesterday, 90);
 
 // Build event key so we only fire once per day
 const eventKey = `${ymdKey(todayParts)}_10am_vs_${ymdKey(yesterdayParts)}_3pm`;
