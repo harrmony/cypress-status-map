@@ -1,22 +1,22 @@
 {
-  "key": "2026-02-07_10am_vs_2026-02-06_3pm",
-  "created_at": "2026-02-07T16:33:48.385Z",
+  "key": "2026-02-08_10am_vs_2026-02-07_3pm",
+  "created_at": "2026-02-08T16:42:12.649Z",
   "compare": {
     "from": {
       "label": "yesterday_3pm",
-      "fetched_at": "2026-02-06T22:53:48.068Z"
+      "fetched_at": "2026-02-07T22:58:04.426Z"
     },
     "to": {
       "label": "today_10am",
-      "fetched_at": "2026-02-07T16:33:48.380Z"
+      "fetched_at": "2026-02-08T16:42:12.643Z"
     }
   },
   "summary": {
-    "opened_total": 0,
-    "closed_total": 5,
+    "opened_total": 1,
+    "closed_total": 3,
     "opened_lifts": 0,
-    "closed_lifts": 4,
-    "opened_trails": 0,
+    "closed_lifts": 2,
+    "opened_trails": 1,
     "closed_trails": 1
   },
   "details": {
@@ -24,15 +24,15 @@
       "opened": [],
       "closed": [
         "Eagle Express",
-        "Easy Rider",
-        "Lions Express",
-        "Sky Quad"
+        "Easy Rider"
       ]
     },
     "trails": {
-      "opened": [],
+      "opened": [
+        "Collins"
+      ],
       "closed": [
-        "Sitzmark (backside)"
+        "Fork"
       ]
     }
   },
