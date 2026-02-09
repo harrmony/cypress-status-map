@@ -1,8 +1,8 @@
 {
-  "fetched_at": "2026-02-09T20:31:36.997Z",
-  "source_updated": "2026-02-09T19:07:22Z",
+  "fetched_at": "2026-02-09T21:11:06.901Z",
+  "source_updated": "2026-02-09T20:37:21Z",
   "lifts_updated": "2026-02-09T19:07:22Z",
-  "trails_updated": "2026-02-09T19:07:22Z",
+  "trails_updated": "2026-02-09T20:37:21Z",
   "operations": {
     "resortStatus": "Open",
     "openTime": null,
@@ -35,8 +35,8 @@
     "Blow-By": "closed",
     "Detention Glades": "closed",
     "Collins": "open",
-    "Horizon": "closed",
-    "Humpty Dumpty": "closed",
+    "Horizon": "open",
+    "Humpty Dumpty": "open",
     "Cat Track (upper)": "open",
     "Primary Power": "closed",
     "Horizon By-Pass": "closed",
