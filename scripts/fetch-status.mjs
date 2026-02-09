@@ -367,15 +367,46 @@ const snapYest3 = nearestSnapshot(history.snapshots, target3pmYesterday, 90);
 
 
 
-// --- Guard: don't allow "today_10am" to be before 10:00am local ---
-const snapToday10Ms = snapToday10 ? Date.parse(snapToday10.fetched_at) : NaN;
-const target10amMs = target10amToday.getTime();
+// --- Guard: require a snapshot from TODAY at/after 10:00 Vancouver time ---
+function sameYmd(a, b) {
+  return a.year === b.year && a.month === b.month && a.day === b.day;
+}
 
-// require the chosen snapshot to be at or after 10:00am (not just "nearest")
-const isToday10Valid = Number.isFinite(snapToday10Ms) && snapToday10Ms >= target10amMs;
+function mins(h, m) {
+  return h * 60 + m;
+}
 
-// If we don't have a valid >=10am snapshot yet, treat it as missing
-const snapToday10Valid = isToday10Valid ? snapToday10 : null;
+
+// Finds the snapshot on the same local day whose local time is >= target,
+// choosing the one closest AFTER the target (within tolerance).
+function nearestSnapshotAtOrAfterLocal(snapshots, dayParts, targetHour, targetMinute, toleranceMinutes = 120) {
+  const targetM = mins(targetHour, targetMinute);
+
+  let best = null;
+  let bestDelta = Infinity; // minutes after target
+
+  for (const s of snapshots || []) {
+    const ms = Date.parse(s?.fetched_at);
+    if (!Number.isFinite(ms)) continue;
+
+    const lp = getTzParts(new Date(ms), TIME_ZONE); // Vancouver-local parts for this snapshot
+    if (!sameYmd(lp, dayParts)) continue;
+
+    const m = mins(lp.hour, lp.minute);
+    const delta = m - targetM; // minutes after target
+    if (delta < 0) continue;   // too early
+
+    if (delta <= toleranceMinutes && delta < bestDelta) {
+      bestDelta = delta;
+      best = s;
+    }
+  }
+
+  return best; // null if nothing >= target within tolerance
+}
+
+const snapToday10Valid = nearestSnapshotAtOrAfterLocal(history.snapshots, todayParts, 10, 0, 600); // This sets it for 10am
+
 
 
 
