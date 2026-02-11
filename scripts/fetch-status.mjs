@@ -362,7 +362,6 @@ const target3pmYesterday = zonedTimeToUtc({
 }, TIME_ZONE);
 
 // Find nearest snapshots
-const snapToday10 = nearestSnapshot(history.snapshots, target10amToday, 90);
 const snapYest3 = nearestSnapshot(history.snapshots, target3pmYesterday, 90);
 
 
@@ -425,8 +424,8 @@ if (snapToday10Valid && snapYest3 && !alreadyFired) {
   const openedCount = liftsDiff.opened.length + trailsDiff.opened.length;
   const closedCount = liftsDiff.closed.length + trailsDiff.closed.length;
 
-  const OPEN_THRESHOLD = 3;   // tweak
-  const CLOSE_THRESHOLD = 3;  // tweak
+  const OPEN_THRESHOLD = 1;   // tweak
+  const CLOSE_THRESHOLD = 1;  // tweak
 
   const significant = openedCount >= OPEN_THRESHOLD || closedCount >= CLOSE_THRESHOLD;
 
