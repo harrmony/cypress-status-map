@@ -1,8 +1,8 @@
 {
-  "fetched_at": "2026-02-14T17:56:34.786Z",
-  "source_updated": "2026-02-14T16:54:31Z",
+  "fetched_at": "2026-02-14T18:46:37.641Z",
+  "source_updated": "2026-02-14T18:07:55Z",
   "lifts_updated": "2026-02-14T16:45:50Z",
-  "trails_updated": "2026-02-14T16:54:31Z",
+  "trails_updated": "2026-02-14T18:07:55Z",
   "operations": {
     "resortStatus": "Open",
     "openTime": null,
@@ -73,8 +73,8 @@
     "Shore Line": "closed",
     "Runway": "open",
     "T-33": "open",
-    "Horsefly Canyon": "closed",
-    "Glades": "closed",
+    "Horsefly Canyon": "open",
+    "Glades": "open",
     "Tomcat": "closed",
     "Ripcord": "closed",
     "Top Gun": "closed",
