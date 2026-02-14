@@ -1,8 +1,8 @@
 {
-  "fetched_at": "2026-02-14T15:55:59.670Z",
-  "source_updated": "2026-02-14T15:42:06Z",
-  "lifts_updated": "2026-02-14T15:01:42Z",
-  "trails_updated": "2026-02-14T15:42:06Z",
+  "fetched_at": "2026-02-14T16:37:56.082Z",
+  "source_updated": "2026-02-14T16:31:35Z",
+  "lifts_updated": "2026-02-14T16:12:49Z",
+  "trails_updated": "2026-02-14T16:14:46Z",
   "operations": {
     "resortStatus": "Open",
     "openTime": null,
@@ -84,7 +84,7 @@
     "Webb-Site": "closed",
     "Ski School Flats": "open",
     "Sitzmark": "open",
-    "Sitzmark (backside)": "closed",
+    "Sitzmark (backside)": "open",
     "Lower Telemark": "open",
     "Lower Wells Grey": "open",
     "Cross Glades": "open",
