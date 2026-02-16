@@ -1,8 +1,8 @@
 {
-  "fetched_at": "2026-02-16T15:54:10.524Z",
-  "source_updated": "2026-02-16T15:28:39Z",
-  "lifts_updated": "2026-02-16T15:28:39Z",
-  "trails_updated": "2026-02-16T15:28:39Z",
+  "fetched_at": "2026-02-16T16:44:28.738Z",
+  "source_updated": "2026-02-16T16:26:21Z",
+  "lifts_updated": "2026-02-16T16:26:21Z",
+  "trails_updated": "2026-02-16T16:26:21Z",
   "operations": {
     "resortStatus": "Open",
     "openTime": null,
@@ -104,7 +104,7 @@
     "Brothers Pass": "closed",
     "Upper Mobratten": "closed",
     "Russel": "open",
-    "Brothers Canyon West": "closed",
+    "Brothers Canyon West": "open",
     "Five Lakes": "closed",
     "Unknown Lake": "closed",
     "Triangle Lake": "open",
