@@ -1,8 +1,8 @@
 {
-  "fetched_at": "2026-02-17T03:38:51.743Z",
-  "source_updated": "2026-02-17T02:30:31Z",
-  "lifts_updated": "2026-02-17T02:30:31Z",
-  "trails_updated": "2026-02-17T02:30:31Z",
+  "fetched_at": "2026-02-17T05:12:46.392Z",
+  "source_updated": "2026-02-17T03:44:34Z",
+  "lifts_updated": "2026-02-17T03:44:34Z",
+  "trails_updated": "2026-02-17T03:44:34Z",
   "operations": {
     "resortStatus": "Open",
     "openTime": null,
@@ -61,7 +61,7 @@
     "Benny's": "closed",
     "Crazy Raven": "closed",
     "Lower Coyote 7": "closed",
-    "3 Bears": "closed",
+    "3 Bears": "open",
     "Rideout": "closed",
     "Bilodeau's Gold": "closed",
     "Upper Coyote 7": "closed",
