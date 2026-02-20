@@ -1,8 +1,8 @@
 {
-  "fetched_at": "2026-02-20T23:01:57.606Z",
-  "source_updated": "2026-02-20T17:02:48Z",
-  "lifts_updated": "2026-02-20T17:02:48Z",
-  "trails_updated": "2026-02-20T16:35:27Z",
+  "fetched_at": "2026-02-20T23:38:24.454Z",
+  "source_updated": "2026-02-20T23:12:57Z",
+  "lifts_updated": "2026-02-20T23:08:32Z",
+  "trails_updated": "2026-02-20T23:08:32Z",
   "operations": {
     "resortStatus": "Open",
     "openTime": null,
@@ -18,7 +18,7 @@
     "Raven Ridge": "closed",
     "Easy Rider": "open",
     "Sky Quad": "open",
-    "Midway Chair": "unknown"
+    "Midway Chair": "open"
   },
   "trails": {
     "Panorama": "open",
