@@ -1,35 +1,37 @@
 {
-  "key": "2026-02-17_10am_vs_2026-02-16_3pm",
-  "created_at": "2026-02-17T17:42:13.915Z",
+  "key": "2026-02-20_10am_vs_2026-02-19_3pm",
+  "created_at": "2026-02-20T16:37:50.744Z",
   "compare": {
     "from": {
       "label": "yesterday_3pm",
-      "fetched_at": "2026-02-16T23:14:04.772Z"
+      "fetched_at": "2026-02-19T23:01:32.368Z"
     },
     "to": {
       "label": "today_10am",
-      "fetched_at": "2026-02-17T17:42:13.910Z"
+      "fetched_at": "2026-02-20T16:37:50.739Z"
     }
   },
   "summary": {
-    "opened_total": 4,
+    "opened_total": 5,
     "closed_total": 0,
-    "opened_lifts": 0,
+    "opened_lifts": 1,
     "closed_lifts": 0,
     "opened_trails": 4,
     "closed_trails": 0
   },
   "details": {
     "lifts": {
-      "opened": [],
+      "opened": [
+        "Midway Chair"
+      ],
       "closed": []
     },
     "trails": {
       "opened": [
-        "3 Bears",
-        "Cascade",
-        "Lower Fork",
-        "Ripcord"
+        "Blaster",
+        "Hut Run",
+        "Shuttle",
+        "Webb-Site"
       ],
       "closed": []
     }
