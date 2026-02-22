@@ -1,38 +1,39 @@
 {
-  "key": "2026-02-21_10am_vs_2026-02-20_3pm",
-  "created_at": "2026-02-21T16:37:25.185Z",
+  "key": "2026-02-22_10am_vs_2026-02-21_3pm",
+  "created_at": "2026-02-22T16:36:25.101Z",
   "compare": {
     "from": {
       "label": "yesterday_3pm",
-      "fetched_at": "2026-02-20T23:01:57.606Z"
+      "fetched_at": "2026-02-21T22:56:06.122Z"
     },
     "to": {
       "label": "today_10am",
-      "fetched_at": "2026-02-21T16:37:25.180Z"
+      "fetched_at": "2026-02-22T16:36:25.095Z"
     }
   },
   "summary": {
-    "opened_total": 4,
-    "closed_total": 0,
-    "opened_lifts": 1,
-    "closed_lifts": 0,
-    "opened_trails": 3,
-    "closed_trails": 0
+    "opened_total": 0,
+    "closed_total": 5,
+    "opened_lifts": 0,
+    "closed_lifts": 1,
+    "opened_trails": 0,
+    "closed_trails": 4
   },
   "details": {
     "lifts": {
-      "opened": [
+      "opened": [],
+      "closed": [
         "Midway Chair"
-      ],
-      "closed": []
+      ]
     },
     "trails": {
-      "opened": [
-        "4th Lake",
-        "Five Lakes",
-        "Pop Fly"
-      ],
-      "closed": []
+      "opened": [],
+      "closed": [
+        "Blaster",
+        "Hut Run",
+        "Shuttle",
+        "Webb-Site"
+      ]
     }
   },
   "placeholders": {
