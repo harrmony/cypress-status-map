@@ -1,8 +1,8 @@
 {
-  "fetched_at": "2026-02-22T14:59:49.068Z",
-  "source_updated": "2026-02-22T02:43:10Z",
-  "lifts_updated": "2026-02-22T02:43:10Z",
-  "trails_updated": "2026-02-22T02:43:10Z",
+  "fetched_at": "2026-02-22T15:35:30.760Z",
+  "source_updated": "2026-02-22T15:30:20Z",
+  "lifts_updated": "2026-02-22T15:30:20Z",
+  "trails_updated": "2026-02-22T15:30:20Z",
   "operations": {
     "resortStatus": "Open",
     "openTime": null,
@@ -18,7 +18,7 @@
     "Raven Ridge": "closed",
     "Easy Rider": "open",
     "Sky Quad": "open",
-    "Midway Chair": "open"
+    "Midway Chair": "closed"
   },
   "trails": {
     "Panorama": "open",
@@ -78,10 +78,10 @@
     "Tomcat": "closed",
     "Ripcord": "open",
     "Top Gun": "closed",
-    "Shuttle": "open",
-    "Blaster": "open",
-    "Hut Run": "open",
-    "Webb-Site": "open",
+    "Shuttle": "closed",
+    "Blaster": "closed",
+    "Hut Run": "closed",
+    "Webb-Site": "closed",
     "Ski School Flats": "open",
     "Sitzmark": "open",
     "Sitzmark (backside)": "open",
