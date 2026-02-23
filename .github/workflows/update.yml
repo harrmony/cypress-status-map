@@ -2,7 +2,7 @@ name: Update Cypress status.json
 
 on:
   schedule:
-    - cron: "*/5 * * * *"    
+    - cron: "*/5 * * * *"
   workflow_dispatch:
 
 permissions:
@@ -12,20 +12,46 @@ jobs:
   update:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      # 1) Checkout main (scripts live here)
+      - name: Checkout main (scripts)
+        uses: actions/checkout@v4
         with:
-          ref: data
+          ref: main
+          path: main
 
-      - uses: actions/setup-node@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
         with:
           node-version: "20"
 
-      - run: node scripts/fetch-status.mjs
+      # 2) Run fetch-status, but write outputs into the data workspace
+      #    (we'll checkout data next, then run scripts pointing at that directory)
+      - name: Checkout data (json)
+        uses: actions/checkout@v4
+        with:
+          ref: data
+          path: data
 
-      - run: |
+      # 3) Run your fetch script from main, but ensure it runs in /data
+      - name: Fetch + build event/history/status
+        run: node ../main/scripts/fetch-status.mjs
+        working-directory: data
+
+      # 4) Post to Instagram (script is on main, run it in /data so it reads event.json there)
+      - name: Post Instagram update (if event exists)
+        env:
+          IG_USER_ID: ${{ secrets.IG_USER_ID }}
+          IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+        run: node ../main/post_instagraph.mjs
+        working-directory: data
+
+      # 5) Commit changes back to data branch
+      - name: Commit + push to data
+        run: |
           git config user.name "status-bot"
           git config user.email "status-bot@users.noreply.github.com"
           git add status.json history.json
           git add event.json 2>/dev/null || true
           git commit -m "Update status.json" || exit 0
           git push origin HEAD:data
+        working-directory: data
