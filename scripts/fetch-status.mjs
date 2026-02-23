@@ -491,7 +491,7 @@ console.log(`Wrote ${HISTORY_FILE} (snapshots=${history.snapshots.length})`);
 // ------------------------------
 // TEST MODE: always update event.json caption from latest diff DELETE THIS BEFORE PRODUCTION RUNS
 // ------------------------------
-const TEST_ALWAYS_EVENT = true;
+const TEST_ALWAYS_EVENT = false;
 
 function diffFromLastSnapshot(historySnapshots) {
   const snaps = historySnapshots || [];
