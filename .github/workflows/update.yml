@@ -42,7 +42,7 @@ jobs:
         env:
           IG_USER_ID: ${{ secrets.IG_USER_ID }}
           IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
-        run: node ../main/post_instagraph.mjs
+        run: node ../main/scripts/post_instagraph.mjs
         working-directory: data
 
       # 5) Commit changes back to data branch
