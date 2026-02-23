@@ -1,22 +1,22 @@
 {
-  "key": "2026-02-23_10am_vs_2026-02-22_3pm",
-  "created_at": "2026-02-23T17:09:03.699Z",
+  "key": "test_2026-02-23T22:50:35.571Z",
+  "created_at": "2026-02-23T22:50:35.581Z",
   "compare": {
     "from": {
-      "label": "yesterday_3pm",
-      "fetched_at": "2026-02-22T22:48:27.113Z"
+      "label": "previous_fetch",
+      "fetched_at": "2026-02-23T21:01:57.888Z"
     },
     "to": {
-      "label": "today_10am",
-      "fetched_at": "2026-02-23T17:09:03.694Z"
+      "label": "latest_fetch",
+      "fetched_at": "2026-02-23T22:50:35.571Z"
     }
   },
   "summary": {
-    "opened_total": 5,
+    "opened_total": 0,
     "closed_total": 0,
     "opened_lifts": 0,
     "closed_lifts": 0,
-    "opened_trails": 5,
+    "opened_trails": 0,
     "closed_trails": 0
   },
   "details": {
@@ -25,20 +25,14 @@
       "closed": []
     },
     "trails": {
-      "opened": [
-        "Blaster",
-        "Hut Run",
-        "Shuttle",
-        "Unrun",
-        "Webb-Site"
-      ],
+      "opened": [],
       "closed": []
     }
   },
   "placeholders": {
     "screenshot_path": null,
-    "instagram_posted": false,
-    "instagram_post_id": null,
-    "caption": null
+    "instagram_posted": true,
+    "instagram_post_id": "18080798012029245",
+    "caption": "Cypress update: no lift/run status changes since last check."
   }
 }
