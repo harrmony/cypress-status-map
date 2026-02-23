@@ -488,6 +488,84 @@ await fs.writeFile(HISTORY_FILE, JSON.stringify(history, null, 2));
 console.log(`Wrote ${HISTORY_FILE} (snapshots=${history.snapshots.length})`);
 
 
+// ------------------------------
+// TEST MODE: always update event.json caption from latest diff DELETE THIS BEFORE PRODUCTION RUNS
+// ------------------------------
+const TEST_ALWAYS_EVENT = true;
+
+function diffFromLastSnapshot(historySnapshots) {
+  const snaps = historySnapshots || [];
+  if (snaps.length < 2) return null;
+
+  // last two snapshots
+  const prev = snaps[snaps.length - 2];
+  const curr = snaps[snaps.length - 1];
+
+  const liftsDiff = diffOpens(prev.lifts, curr.lifts);
+  const trailsDiff = diffOpens(prev.trails, curr.trails);
+
+  return { prev, curr, liftsDiff, trailsDiff };
+}
+
+if (TEST_ALWAYS_EVENT) {
+  const diff = diffFromLastSnapshot(history.snapshots);
+
+  if (!diff) {
+    console.log("[test-event] Not enough history yet to build caption (need 2 snapshots).");
+  } else {
+    const { prev, curr, liftsDiff, trailsDiff } = diff;
+
+    const openedCount = liftsDiff.opened.length + trailsDiff.opened.length;
+    const closedCount = liftsDiff.closed.length + trailsDiff.closed.length;
+
+    // Build caption even if no changes; you can decide how you want to handle that
+    let caption = buildCaption({
+      liftsOpened: liftsDiff.opened,
+      trailsOpened: trailsDiff.opened,
+      liftsClosed: liftsDiff.closed,
+      trailsClosed: trailsDiff.closed
+    });
+
+    if (!caption) {
+      // If buildCaption returns "" (no opens/closes), make a basic status line
+      caption = "Cypress update: no lift/run status changes since last check.";
+    }
+
+    // Unique key each run so you can see it changing
+    const eventKey = `test_${curr.fetched_at}`;
+
+    const event = {
+      key: eventKey,
+      created_at: new Date().toISOString(),
+      compare: {
+        from: { label: "previous_fetch", fetched_at: prev.fetched_at },
+        to:   { label: "latest_fetch", fetched_at: curr.fetched_at }
+      },
+      summary: {
+        opened_total: openedCount,
+        closed_total: closedCount,
+        opened_lifts: liftsDiff.opened.length,
+        closed_lifts: liftsDiff.closed.length,
+        opened_trails: trailsDiff.opened.length,
+        closed_trails: trailsDiff.closed.length
+      },
+      details: {
+        lifts: liftsDiff,
+        trails: trailsDiff
+      },
+      placeholders: {
+        screenshot_path: null,
+        instagram_posted: false,     // force post each run (TESTING)
+        instagram_post_id: null,
+        caption
+      }
+    };
+
+    await fs.writeFile(EVENT_FILE, JSON.stringify(event, null, 2));
+    console.log(`[test-event] Wrote ${EVENT_FILE} (opened=${openedCount}, closed=${closedCount})`);
+  }
+}
+
 // TEST RUN CODE - REMOVE
 
 // if (process.env.CAPTION_TEST === "1") {
