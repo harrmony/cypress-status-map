@@ -1,8 +1,8 @@
 {
-  "fetched_at": "2026-02-24T14:39:12.490Z",
-  "source_updated": "2026-02-24T01:52:48Z",
-  "lifts_updated": "2026-02-24T01:52:48Z",
-  "trails_updated": "2026-02-24T01:52:48Z",
+  "fetched_at": "2026-02-24T15:39:15.203Z",
+  "source_updated": "2026-02-24T15:23:45Z",
+  "lifts_updated": "2026-02-24T15:09:30Z",
+  "trails_updated": "2026-02-24T15:23:45Z",
   "operations": {
     "resortStatus": "Open",
     "openTime": null,
@@ -75,7 +75,7 @@
     "T-33": "open",
     "Horsefly Canyon": "open",
     "Glades": "open",
-    "Tomcat": "closed",
+    "Tomcat": "open",
     "Ripcord": "open",
     "Top Gun": "closed",
     "Shuttle": "closed",
