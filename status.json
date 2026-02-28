@@ -1,8 +1,8 @@
 {
-  "fetched_at": "2026-02-28T05:42:30.771Z",
-  "source_updated": "2026-02-28T02:15:03Z",
-  "lifts_updated": "2026-02-28T02:15:03Z",
-  "trails_updated": "2026-02-28T02:15:03Z",
+  "fetched_at": "2026-02-28T06:01:29.683Z",
+  "source_updated": "2026-02-28T05:40:54Z",
+  "lifts_updated": "2026-02-28T05:40:39Z",
+  "trails_updated": "2026-02-28T05:40:54Z",
   "operations": {
     "resortStatus": "Open",
     "openTime": null,
@@ -17,7 +17,7 @@
     "Lions Express": "open",
     "Raven Ridge": "closed",
     "Easy Rider": "open",
-    "Sky Quad": "open",
+    "Sky Quad": "closed",
     "Midway Chair": "closed"
   },
   "trails": {
@@ -72,11 +72,11 @@
     "Black Fly": "closed",
     "Shore Line": "closed",
     "Runway": "open",
-    "T-33": "open",
-    "Horsefly Canyon": "open",
-    "Glades": "open",
-    "Tomcat": "open",
-    "Ripcord": "open",
+    "T-33": "closed",
+    "Horsefly Canyon": "closed",
+    "Glades": "closed",
+    "Tomcat": "closed",
+    "Ripcord": "closed",
     "Top Gun": "closed",
     "Shuttle": "closed",
     "Blaster": "closed",
