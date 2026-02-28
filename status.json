@@ -1,8 +1,8 @@
 {
-  "fetched_at": "2026-02-28T15:17:09.743Z",
-  "source_updated": "2026-02-28T15:07:45Z",
+  "fetched_at": "2026-02-28T15:40:32.943Z",
+  "source_updated": "2026-02-28T15:22:46Z",
   "lifts_updated": "2026-02-28T15:05:54Z",
-  "trails_updated": "2026-02-28T15:02:28Z",
+  "trails_updated": "2026-02-28T15:22:46Z",
   "operations": {
     "resortStatus": "Open",
     "openTime": null,
@@ -72,7 +72,7 @@
     "Black Fly": "closed",
     "Shore Line": "closed",
     "Runway": "open",
-    "T-33": "closed",
+    "T-33": "open",
     "Horsefly Canyon": "closed",
     "Glades": "closed",
     "Tomcat": "closed",
