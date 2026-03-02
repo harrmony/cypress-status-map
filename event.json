@@ -12,20 +12,26 @@
     }
   },
   "summary": {
-    "opened_total": 0,
+    "opened_total": 4,
     "closed_total": 0,
-    "opened_lifts": 0,
+    "opened_lifts": 1,
     "closed_lifts": 0,
-    "opened_trails": 0,
+    "opened_trails": 3,
     "closed_trails": 0
   },
   "details": {
     "lifts": {
-      "opened": [],
+      "opened": [
+        "Midway Chair" 
+      ],
       "closed": []
     },
     "trails": {
-      "opened": [],
+      "opened": [
+      "4th Lake",      
+      "Five Lakes",   
+      "Pop Fly" 
+      ],
       "closed": []
     }
   },
@@ -33,6 +39,10 @@
     "screenshot_path": null,
     "instagram_posted": true,
     "instagram_post_id": "18080798012029245",
-    "caption": "Cypress update: no lift/run status changes since last check."
+    "caption": "Cypress update: 1 new chair open (Midway), and 3 new trails (4th Lake, Five Lakes, and Pop Fly)."
   }
 }
+
+
+
+     
