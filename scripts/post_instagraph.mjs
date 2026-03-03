@@ -192,7 +192,7 @@ async function generateScreenshotsForEvent(eventKey) {
 
 // ---------- Main ----------
 async function main() {
-  requiredEnv();
+  if (MODE === "post") requiredEnv();
 
   let event;
   try {
