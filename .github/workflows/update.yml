@@ -27,68 +27,32 @@ jobs:
         run: npm ci
         working-directory: main
 
-      - name: Install Playwright Chromium
-        run: npx playwright install --with-deps chromium
-        working-directory: main
-
       - name: Checkout data (json)
         uses: actions/checkout@v4
         with:
           ref: data
           path: data
 
-      
+      ###   Commented out during testing   ###
 
-
-      # This is commented out for testing to now update EVENT
-      
       # - name: Fetch + build event/history/status
       #   run: node ../main/scripts/fetch-status.mjs
       #   working-directory: data
 
-
-
-      # 1) Generate screenshots + set screenshot_path in event.json, but DO NOT post yet
-      # Your post_instagraph.mjs needs a "mode" for this; if you don't have it yet,
-      # see notes below.
-      - name: Prepare Instagram assets (screenshots + event screenshot URL)
-        env:
-          # Tell the script that screenshots should point to RAW on *data* branch
-          GITHUB_OWNER: harrmony
-          GITHUB_REPO: cypress-status-map
-          GITHUB_BRANCH: data
-          MODE: prepare
-        run: node ../main/scripts/post_instagraph.mjs
-        working-directory: data
-
-      # 2) Commit screenshots + event.json so the image URL becomes public
-      - name: Commit + push screenshots + event to data
-        run: |
-          git config user.name "status-bot"
-          git config user.email "status-bot@users.noreply.github.com"
-          git add status.json history.json event.json
-          git commit -m "Update status + IG assets" || exit 0
-          git push origin HEAD:data
-        working-directory: data
-
-      # 3) Post to Instagram (now the raw URL exists)
+      
       - name: Post Instagram update (if event exists)
         env:
           IG_USER_ID: ${{ secrets.IG_USER_ID }}
           IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
-          GITHUB_OWNER: harrmony
-          GITHUB_REPO: cypress-status-map
-          GITHUB_BRANCH: data
-          MODE: post
         run: node ../main/scripts/post_instagraph.mjs
         working-directory: data
 
-      # 4) Commit the "posted" flags so it won't repost
-      - name: Commit + push posted flags to data
+      - name: Commit + push to data
         run: |
           git config user.name "status-bot"
           git config user.email "status-bot@users.noreply.github.com"
-          git add event.json
-          git commit -m "Mark IG posted" || exit 0
+          git add status.json history.json
+          git add event.json 2>/dev/null || true
+          git commit -m "Update status.json" || exit 0
           git push origin HEAD:data
         working-directory: data
