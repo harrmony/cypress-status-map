@@ -195,6 +195,31 @@ async function waitUntilFinished(creationId, { maxWaitMs = 2 * 60 * 1000 } = {})
   }
 }
 
+async function waitForImageUrl(url, { maxWaitMs = 90_000, intervalMs = 3_000 } = {}) {
+  const start = Date.now();
+  while (true) {
+    try {
+      const res = await fetch(url, { method: "GET" });
+      const ct = res.headers.get("content-type") || "";
+      const len = res.headers.get("content-length") || "";
+
+      if (res.ok && ct.includes("image")) {
+        console.log(`[image-url] OK ${res.status} content-type=${ct} content-length=${len}`);
+        return;
+      }
+
+      console.log(`[image-url] Not ready: HTTP ${res.status} content-type=${ct}`);
+    } catch (e) {
+      console.log(`[image-url] Fetch error: ${e?.message || e}`);
+    }
+
+    if (Date.now() - start > maxWaitMs) {
+      throw new Error(`Timed out waiting for image_url to become available: ${url}`);
+    }
+    await sleep(intervalMs);
+  }
+}
+
 async function main() {
   const GENERATE_ONLY = process.argv.includes("--generate-only");
 
@@ -239,7 +264,14 @@ async function main() {
   console.log(`[post] Using image_url=${IMAGE_URL}`);
   console.log("[post] Creating container...");
 
-  const creationId = await createImageContainer({ imageUrl: IMAGE_URL, caption });
+
+    // Cache-bust so we don't get a stale CDN response
+  const imageUrlForPost = `${IMAGE_URL}?v=${encodeURIComponent(event.key || Date.now())}`;
+
+  // Ensure the public URL is actually serving the file before IG fetches it
+  await waitForImageUrl(imageUrlForPost);
+
+  const creationId = await createImageContainer({ imageUrl: imageUrlForPost, caption });
 
   console.log(`[post] Container created: ${creationId}. Polling status...`);
   await waitUntilFinished(creationId);
