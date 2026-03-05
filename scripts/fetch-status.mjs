@@ -57,45 +57,62 @@ function humanList(items, max = 6) {
 }
 
 function buildCaption({ liftsOpened, trailsOpened, liftsClosed, trailsClosed }) {
-  const openedTotal = liftsOpened.length + trailsOpened.length;
-  const closedTotal = liftsClosed.length + trailsClosed.length;
+  const lines = [];
 
-  const parts = [];
+  // Header
+  lines.push("Cypress Update");
+
+  function addOpenBlock(kindLabelSingular, items) {
+    if (!items || items.length === 0) return;
+
+    const n = items.length;
+    const noun = n === 1 ? kindLabelSingular : `${kindLabelSingular}s`;
+
+    // OPEN format (includes "new")
+    lines.push(`${n} new ${noun} open`);
+
+    for (const name of items) lines.push(`(${name})`);
+  }
+
+  function addCloseBlock(kindLabelSingular, items) {
+    if (!items || items.length === 0) return;
+
+    const n = items.length;
+    const noun = n === 1 ? kindLabelSingular : `${kindLabelSingular}s`;
+
+    // CLOSE format (NO "new")
+    lines.push(`${n} ${noun} closed`);
+
+    for (const name of items) lines.push(`${name}`);
+  }
 
   // OPENINGS
-  if (openedTotal > 0) {
-    // "1 new opening" vs "5 new openings"
-    parts.push(`Cypress update: ${openedTotal} new ${plural(openedTotal, "opening")}.`);
+  addOpenBlock("chair", liftsOpened);
 
-    const openedBits = [];
-    if (liftsOpened.length > 0) {
-      openedBits.push(`${liftsOpened.length} ${plural(liftsOpened.length, "lift")}: ${humanList(liftsOpened)}`);
-    }
-    if (trailsOpened.length > 0) {
-      openedBits.push(`${trailsOpened.length} ${plural(trailsOpened.length, "run")}: ${humanList(trailsOpened)}`);
-    }
-    parts.push(openedBits.join("   •   "));
+  if (liftsOpened?.length && trailsOpened?.length) {
+    lines.push("");
+    lines.push("");
+  }
+
+  addOpenBlock("trail", trailsOpened);
+
+  // Space before closures
+  if ((liftsClosed?.length || 0) + (trailsClosed?.length || 0) > 0) {
+    lines.push("");
+    lines.push("");
   }
 
   // CLOSURES
-  if (closedTotal > 0) {
-    const prefix = openedTotal > 0 ? "Also:" : "Cypress update:";
-    parts.push(`${prefix} ${closedTotal} ${plural(closedTotal, "closure")}.`);
+  addCloseBlock("chair", liftsClosed);
 
-    const closedBits = [];
-    if (liftsClosed.length > 0) {
-      closedBits.push(`${liftsClosed.length} ${plural(liftsClosed.length, "lift")}: ${humanList(liftsClosed)}`);
-    }
-    if (trailsClosed.length > 0) {
-      closedBits.push(`${trailsClosed.length} ${plural(trailsClosed.length, "run")}: ${humanList(trailsClosed)}`);
-    }
-    parts.push(closedBits.join(" • "));
+  if (liftsClosed?.length && trailsClosed?.length) {
+    lines.push("");
+    lines.push("");
   }
 
-  // If you want hashtags later, add them here.
-  // parts.push("#cypressmountain #skiing #snowboard");
+  addCloseBlock("run", trailsClosed); // using "run" for closures as requested
 
-  return parts.join("\n");
+  return lines.join("\n").trim();
 }
 
 

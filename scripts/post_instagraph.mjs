@@ -82,43 +82,121 @@ async function generateCaptionedImage({ caption }) {
   const width = meta.width ?? 1080;
   const height = meta.height ?? 1080;
 
-  // Layout
+  // Layout + typography (BIG)
   const padding = Math.round(width * 0.06);
-  const fontSize = Math.max(26, Math.round(width * 0.032)); // scales with image
-  const lineHeight = Math.round(fontSize * 1.25);
-
-  // Where to place the caption block (top-left-ish by default)
   const x = padding;
-  const y = padding;
+  let y = padding;
 
-  const lines = wrapLines(caption, 38, 10);
+  const headerSize = Math.max(54, Math.round(width * 0.07));      // big
+  const mainSize   = Math.max(42, Math.round(width * 0.052));     // big
+  const itemSize   = Math.max(34, Math.round(width * 0.045));     // 2-ish sizes smaller
+  const headerLH   = Math.round(headerSize * 1.15);
+  const mainLH     = Math.round(mainSize * 1.22);
+  const itemLH     = Math.round(itemSize * 1.22);
 
-  // Optional: a subtle white backing box so black text is always readable
-  const boxPad = Math.round(fontSize * 0.55);
-  const boxWidth = Math.round(width - padding * 2);
-  const boxHeight = Math.min(
-    height - padding * 2,
-    lines.length * lineHeight + boxPad * 2
-  );
+  const headerColor = "#0B2D5C"; // dark blue
+  const black = "#000000";
 
-  const tspans = lines
-    .map((ln, i) => {
-      const dy = i === 0 ? 0 : lineHeight;
-      return `<tspan x="${x + boxPad}" dy="${dy}">${escapeXml(ln)}</tspan>`;
-    })
-    .join("");
+  // Simple wrapping for super-long lines (keeps within image width)
+  function wrapLine(line, maxChars) {
+    const words = String(line).split(/\s+/).filter(Boolean);
+    const out = [];
+    let cur = "";
+    for (const w of words) {
+      const next = cur ? `${cur} ${w}` : w;
+      if (next.length <= maxChars) {
+        cur = next;
+      } else {
+        if (cur) out.push(cur);
+        cur = w;
+      }
+    }
+    if (cur) out.push(cur);
+    return out;
+  }
+
+  const rawLines = String(caption || "").replace(/\r/g, "").split("\n");
+
+  // Build SVG text elements line-by-line
+  const elements = [];
+  let firstNonEmptySeen = false;
+
+  for (let i = 0; i < rawLines.length; i++) {
+    const line = rawLines[i];
+
+    // Blank lines = vertical spacing (your “two line returns”)
+    if (!line.trim()) {
+      y += Math.round(mainLH * 0.8);
+      continue;
+    }
+
+    // 1) Header: first non-empty line
+    if (!firstNonEmptySeen) {
+      firstNonEmptySeen = true;
+
+      // Force exact header formatting just in case older events exist
+      const headerText = "Cypress Update";
+
+      elements.push(`
+        <text x="${x}" y="${y + headerSize}"
+              font-family="system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif"
+              font-size="${headerSize}"
+              font-weight="800"
+              fill="${headerColor}">
+          ${escapeXml(headerText)}
+        </text>
+      `);
+
+      y += headerLH;
+      continue;
+    }
+
+    // 2) Bracket lines: "(Name)" — bold, smaller
+    const isBracket = line.trim().startsWith("(") && line.trim().endsWith(")");
+
+    if (isBracket) {
+      // Wrap only if needed; names are usually short, but safe
+      const wrapped = wrapLine(line.trim(), 28);
+
+      for (const w of wrapped) {
+        elements.push(`
+          <text x="${x}" y="${y + itemSize}"
+                font-family="system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif"
+                font-size="${itemSize}"
+                font-weight="800"
+                fill="${black}">
+            ${escapeXml(w)}
+          </text>
+        `);
+        y += itemLH;
+      }
+
+      continue;
+    }
+
+    // 3) Main category lines: "1 new chair open" / "3 new trails open" — black
+    // Wrap if long (rare)
+    const wrapped = wrapLine(line.trim(), 30);
+
+    for (const w of wrapped) {
+      elements.push(`
+        <text x="${x}" y="${y + mainSize}"
+              font-family="system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif"
+              font-size="${mainSize}"
+              font-weight="700"
+              fill="${black}">
+          ${escapeXml(w)}
+        </text>
+      `);
+      y += mainLH;
+    }
+  }
 
   const svg = `
-  <svg width="${width}" height="${height}">
-    <rect x="${x}" y="${y}" width="${boxWidth}" height="${boxHeight}" rx="24" ry="24"
-          fill="rgba(255,255,255,0.80)"/>
-    <text x="${x + boxPad}" y="${y + boxPad + fontSize}"
-          font-family="system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif"
-          font-size="${fontSize}"
-          fill="#000000">
-      ${tspans}
-    </text>
-  </svg>`;
+    <svg width="${width}" height="${height}">
+      ${elements.join("\n")}
+    </svg>
+  `;
 
   await base
     .composite([{ input: Buffer.from(svg), top: 0, left: 0 }])
