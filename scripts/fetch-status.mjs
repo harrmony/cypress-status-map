@@ -454,6 +454,11 @@ if (snapToday10Valid && snapYest3 && !alreadyFired) {
     liftsClosed: liftsDiff.closed,
     trailsClosed: trailsDiff.closed
     });
+
+    const MAP_URL = "https://harrmony.github.io/cypress-status-map/";
+    const caption_image = caption;
+    // IG caption includes the link, but the image caption does not
+    const caption_ig = `${caption}\n\nLive map: ${MAP_URL}`;
     
     event = {
       key: eventKey,
@@ -478,7 +483,8 @@ if (snapToday10Valid && snapYest3 && !alreadyFired) {
         screenshot_path: null,
         instagram_posted: false,
         instagram_post_id: null,
-        caption
+        caption_image,
+        caption_ig
       }
     };
 

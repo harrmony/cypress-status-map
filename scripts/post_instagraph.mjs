@@ -324,14 +324,32 @@ async function main() {
     return;
   }
 
-  const caption = event.placeholders.caption;
-  if (!caption) {
-    console.log("[skip] No caption in event.placeholders.caption");
+  const captionImage =
+    event.placeholders.caption_image ?? event.placeholders.caption;
+
+  if (!captionImage) {
+    console.log("[skip] No caption found in event placeholders");
     return;
   }
 
-  // 1) Generate image file locally (to be committed/pushed by workflow)
-  await generateCaptionedImage({ caption });
+  // Insert the map link after "Cypress Update"
+  const MAP_URL = "https://harrmony.github.io/cypress-status-map/";
+
+  const lines = captionImage.split("\n");
+
+  let captionIG;
+
+  if (lines.length > 0) {
+    captionIG =
+      `${lines[0]}\n` +
+      `Live status map → ${MAP_URL}\n\n` +
+      lines.slice(1).join("\n");
+  } else {
+    captionIG = captionImage;
+  }
+
+  // 1) Image overlay uses captionImage ONLY (no URL)
+  await generateCaptionedImage({ caption: captionImage });
 
   if (GENERATE_ONLY) {
     console.log("[image] Generate-only mode, skipping IG post.");
@@ -349,7 +367,10 @@ async function main() {
   // Ensure the public URL is actually serving the file before IG fetches it
   await waitForImageUrl(imageUrlForPost);
 
-  const creationId = await createImageContainer({ imageUrl: imageUrlForPost, caption });
+  const creationId = await createImageContainer({
+  imageUrl: imageUrlForPost,
+  caption: captionIG
+  });
 
   console.log(`[post] Container created: ${creationId}. Polling status...`);
   await waitUntilFinished(creationId);
