@@ -196,8 +196,10 @@ async function waitUntilFinished(creationId, { maxWaitMs = 2 * 60 * 1000 } = {})
 }
 
 async function main() {
-  requiredEnv();
   const GENERATE_ONLY = process.argv.includes("--generate-only");
+
+  // Only require IG credentials when we intend to post
+  if (!GENERATE_ONLY) requiredEnv();
 
   let event;
   try {
@@ -229,9 +231,9 @@ async function main() {
   await generateCaptionedImage({ caption });
 
   if (GENERATE_ONLY) {
-  console.log("[image] Generate-only mode, skipping IG post.");
-  return;
-}
+    console.log("[image] Generate-only mode, skipping IG post.");
+    return;
+  }
 
   // 2) Post using public URL (must exist publicly before this runs — workflow change below)
   console.log(`[post] Using image_url=${IMAGE_URL}`);
