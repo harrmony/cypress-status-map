@@ -23,10 +23,6 @@ jobs:
         with:
           node-version: "20"
 
-      - name: Install deps (main)
-        run: npm ci
-        working-directory: main
-
       - name: Checkout data (json)
         uses: actions/checkout@v4
         with:
@@ -39,7 +35,7 @@ jobs:
       #   run: node ../main/scripts/fetch-status.mjs
       #   working-directory: data
 
-      
+
       - name: Post Instagram update (if event exists)
         env:
           IG_USER_ID: ${{ secrets.IG_USER_ID }}
