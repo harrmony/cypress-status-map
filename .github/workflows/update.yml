@@ -1,54 +1,72 @@
-name: Update Cypress status.json
+  name: Update Cypress status.json
 
-on:
-  schedule:
-    - cron: "*/5 * * * *"
-  workflow_dispatch:
+  on:
+    schedule:
+      - cron: "*/5 * * * *"
+    workflow_dispatch:
 
-permissions:
-  contents: write
+  permissions:
+    contents: write
 
-jobs:
-  update:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout main (scripts)
-        uses: actions/checkout@v4
-        with:
-          ref: main
-          path: main
+  jobs:
+    update:
+      runs-on: ubuntu-latest
+      steps:
+        - name: Checkout main (scripts)
+          uses: actions/checkout@v4
+          with:
+            ref: main
+            path: main
 
-      - name: Setup Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: "20"
+        - name: Setup Node
+          uses: actions/setup-node@v4
+          with:
+            node-version: "20"
 
-      - name: Checkout data (json)
-        uses: actions/checkout@v4
-        with:
-          ref: data
-          path: data
+        - name: Install deps (main)
+          run: npm ci 
+          working-directory: main
 
-      ###   Commented out during testing   ###
-
-      # - name: Fetch + build event/history/status
-      #   run: node ../main/scripts/fetch-status.mjs
-      #   working-directory: data
+        - name: Checkout data (json)
+          uses: actions/checkout@v4
+          with:
+            ref: data
+            path: data
 
 
-      - name: Post Instagram update (if event exists)
-        env:
-          IG_USER_ID: ${{ secrets.IG_USER_ID }}
-          IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
-        run: node ../main/scripts/post_instagraph.mjs
-        working-directory: data
+        ###   Commented out during testing   ###
 
-      - name: Commit + push to data
-        run: |
-          git config user.name "status-bot"
-          git config user.email "status-bot@users.noreply.github.com"
-          git add status.json history.json
-          git add event.json 2>/dev/null || true
-          git commit -m "Update status.json" || exit 0
-          git push origin HEAD:data
-        working-directory: data
+        # - name: Fetch + build event/history/status
+        #   run: node ../main/scripts/fetch-status.mjs
+        #   working-directory: data
+
+        - name: Generate IG image (caption overlay)
+          run: node ../main/scripts/post_instagraph.mjs --generate-only
+          working-directory: data
+
+        - name: Commit + push data (status/history/event/image)
+          run: |
+            git config user.name "status-bot"
+            git config user.email "status-bot@users.noreply.github.com"
+            git add status.json history.json
+            git add event.json 2>/dev/null || true
+            git add ig_post.png 2>/dev/null || true
+            git commit -m "Update status + IG image" || exit 0
+            git push origin HEAD:data
+          working-directory: data
+
+        - name: Post Instagram update (if event exists)
+          env:
+            IG_USER_ID: ${{ secrets.IG_USER_ID }}
+            IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+          run: node ../main/scripts/post_instagraph.mjs
+          working-directory: data
+
+        - name: Commit + push post result (event.json)
+          run: |
+            git config user.name "status-bot"
+            git config user.email "status-bot@users.noreply.github.com"
+            git add event.json 2>/dev/null || true
+            git commit -m "Mark IG posted" || exit 0
+            git push origin HEAD:data
+          working-directory: data
