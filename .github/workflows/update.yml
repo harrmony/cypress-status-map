@@ -34,11 +34,9 @@
             path: data
 
 
-        ###   Commented out during testing   ###
-
-        # - name: Fetch + build event/history/status
-        #   run: node ../main/scripts/fetch-status.mjs
-        #   working-directory: data
+        - name: Fetch + build event/history/status
+          run: node ../main/scripts/fetch-status.mjs
+          working-directory: data
 
         - name: Generate IG image (caption overlay)
           run: node ../main/scripts/post_instagraph.mjs --generate-only
