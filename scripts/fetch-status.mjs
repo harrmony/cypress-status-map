@@ -60,7 +60,7 @@ function buildCaption({ liftsOpened, trailsOpened, liftsClosed, trailsClosed }) 
   const lines = [];
 
   // Header
-  lines.push("Cypress Update");
+  lines.push("Cypress Update\n");
 
   function addOpenBlock(kindLabelSingular, items) {
     if (!items || items.length === 0) return;
@@ -551,7 +551,7 @@ if (TEST_ALWAYS_EVENT) {
 
     if (!caption) {
       // If buildCaption returns "" (no opens/closes), make a basic status line
-      caption = "Cypress update: no lift/run status changes since last check.";
+      caption = "Cypress update\n\nno lift/run status changes since last check.";
     }
 
     // Unique key each run so you can see it changing

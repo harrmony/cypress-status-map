@@ -87,9 +87,9 @@ async function generateCaptionedImage({ caption }) {
   const x = padding;
   let y = padding;
 
-  const headerSize = Math.max(54, Math.round(width * 0.07));      // big
-  const mainSize   = Math.max(42, Math.round(width * 0.052));     // big
-  const itemSize   = Math.max(34, Math.round(width * 0.045));     // 2-ish sizes smaller
+  const headerSize = Math.max(78, Math.round(width * 0.08));      // big
+  const mainSize   = Math.max(55, Math.round(width * 0.056));     // big
+  const itemSize   = Math.max(48, Math.round(width * 0.049));     // 2-ish sizes smaller
   const headerLH   = Math.round(headerSize * 1.15);
   const mainLH     = Math.round(mainSize * 1.22);
   const itemLH     = Math.round(itemSize * 1.22);
@@ -117,12 +117,6 @@ async function generateCaptionedImage({ caption }) {
 
   const rawLines = String(caption || "").replace(/\r/g, "").split("\n");
   
-  ///ADDED FOR TESTING///
-  console.log("[debug] rawLines:", JSON.stringify(rawLines, null, 2));
-  console.log(`[debug] image size: ${width}x${height}`);
-  console.log(`[debug] sizes: header=${headerSize}, main=${mainSize}, item=${itemSize}`);
-  console.log(`[debug] start position: x=${x}, y=${y}`);
-
   // Build SVG text elements line-by-line
   const elements = [];
   let firstNonEmptySeen = false;
@@ -135,9 +129,6 @@ async function generateCaptionedImage({ caption }) {
       y += Math.round(mainLH * 0.8);
       continue;
     }
-
-    /// ADDED FOR TESTING ///
-    console.log(`[debug] processing line ${i}: "${line}" at y=${y}`);
 
     // 1) Header: first non-empty line
     if (!firstNonEmptySeen) {
@@ -201,14 +192,10 @@ async function generateCaptionedImage({ caption }) {
     }
   }
 
-  
-///RECTANGLE ADDED FOR TESTING///
 
   const svg = `
     <svg width="${width}" height="${height}">
-      <rect x="${x - 20}" y="${padding - 20}" width="${width * 0.8}" height="${height * 0.7}"
-      fill="rgba(255,0,0,0.08)" stroke="red" stroke-width="4"/>
-      ${elements.join("\n")}
+            ${elements.join("\n")}
     </svg>
   `;
 
@@ -341,12 +328,7 @@ async function main() {
   const captionImage =
     event.placeholders.caption_image ?? event.placeholders.caption;
 
-
-    ///JUST ADDED FOR TESTING///
-    console.log("[debug] captionImage raw:");
-    console.log(captionImage);
-    console.log("[debug] captionImage lines:", JSON.stringify(captionImage.split("\n"), null, 2));
-    
+   
     if (!captionImage) {
     console.log("[skip] No caption found in event placeholders");
     return;
