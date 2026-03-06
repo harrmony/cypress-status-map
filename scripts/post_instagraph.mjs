@@ -116,6 +116,12 @@ async function generateCaptionedImage({ caption }) {
   }
 
   const rawLines = String(caption || "").replace(/\r/g, "").split("\n");
+  
+  ///ADDED FOR TESTING///
+  console.log("[debug] rawLines:", JSON.stringify(rawLines, null, 2));
+  console.log(`[debug] image size: ${width}x${height}`);
+  console.log(`[debug] sizes: header=${headerSize}, main=${mainSize}, item=${itemSize}`);
+  console.log(`[debug] start position: x=${x}, y=${y}`);
 
   // Build SVG text elements line-by-line
   const elements = [];
@@ -129,6 +135,9 @@ async function generateCaptionedImage({ caption }) {
       y += Math.round(mainLH * 0.8);
       continue;
     }
+
+    /// ADDED FOR TESTING ///
+    console.log(`[debug] processing line ${i}: "${line}" at y=${y}`);
 
     // 1) Header: first non-empty line
     if (!firstNonEmptySeen) {
@@ -192,8 +201,13 @@ async function generateCaptionedImage({ caption }) {
     }
   }
 
+  
+///RECTANGLE ADDED FOR TESTING///
+
   const svg = `
     <svg width="${width}" height="${height}">
+      <rect x="${x - 20}" y="${padding - 20}" width="${width * 0.8}" height="${height * 0.7}"
+      fill="rgba(255,0,0,0.08)" stroke="red" stroke-width="4"/>
       ${elements.join("\n")}
     </svg>
   `;
@@ -327,13 +341,16 @@ async function main() {
   const captionImage =
     event.placeholders.caption_image ?? event.placeholders.caption;
 
-  if (!captionImage) {
+
+    ///JUST ADDED FOR TESTING///
+    console.log("[debug] captionImage raw:");
+    console.log(captionImage);
+    console.log("[debug] captionImage lines:", JSON.stringify(captionImage.split("\n"), null, 2));
+    
+    if (!captionImage) {
     console.log("[skip] No caption found in event placeholders");
     return;
   }
-
-  // Insert the map link after "Cypress Update"
-  const MAP_URL = "https://harrmony.github.io/cypress-status-map/";
 
   const lines = captionImage.split("\n");
 
@@ -342,7 +359,7 @@ async function main() {
   if (lines.length > 0) {
     captionIG =
       `${lines[0]}\n` +
-      `Live status map → ${MAP_URL}\n\n` +
+      `Live status map → link in bio\n\n` +
       lines.slice(1).join("\n");
   } else {
     captionIG = captionImage;
