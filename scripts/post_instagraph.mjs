@@ -87,9 +87,9 @@ async function generateCaptionedImage({ caption }) {
   const x = padding;
   let y = padding;
 
-  const headerSize = Math.max(78, Math.round(width * 0.08));      // big
-  const mainSize   = Math.max(55, Math.round(width * 0.056));     // big
-  const itemSize   = Math.max(48, Math.round(width * 0.049));     // 2-ish sizes smaller
+  const headerSize = Math.max(105, Math.round(width * 0.200));      // big
+  const mainSize   = Math.max(85, Math.round(width * 0.100));     // big
+  const itemSize   = Math.max(70, Math.round(width * 0.950));     // 2-ish sizes smaller
   const headerLH   = Math.round(headerSize * 1.15);
   const mainLH     = Math.round(mainSize * 1.22);
   const itemLH     = Math.round(itemSize * 1.22);

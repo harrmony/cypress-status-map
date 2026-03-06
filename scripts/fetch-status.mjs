@@ -60,7 +60,7 @@ function buildCaption({ liftsOpened, trailsOpened, liftsClosed, trailsClosed }) 
   const lines = [];
 
   // Header
-  lines.push("Cypress Update\n\n");
+  lines.push("Cypress Update\n\n\n");
 
   function addOpenBlock(kindLabelSingular, items) {
     if (!items || items.length === 0) return;
