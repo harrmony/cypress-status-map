@@ -34,7 +34,6 @@ function getVancouverParts(date = new Date()) {
   };
 }
 
-
 //HELPER FUNCTIONS FOR CAPTION BUILDING
 
 // ---- Caption helpers (smart grammar) ----
@@ -56,11 +55,26 @@ function humanList(items, max = 6) {
   return more > 0 ? `${joined} (+${more} more)` : joined;
 }
 
+function getTodayHeaderDate() {
+  const now = new Date();
+
+  return new Intl.DateTimeFormat("en-CA", {
+    timeZone: TIME_ZONE,
+    weekday: "long",
+    month: "long",
+    day: "numeric"
+  }).format(now);
+}
+
 function buildCaption({ liftsOpened, trailsOpened, liftsClosed, trailsClosed }) {
   const lines = [];
+  const headerDate = getTodayHeaderDate();
 
-  // Header
-  lines.push("Cypress Update\n\n\n");
+  // Header on two lines
+  lines.push("Cypress Update");
+  lines.push(headerDate);
+  lines.push("");
+  lines.push("");
 
   function addOpenBlock(kindLabelSingular, items) {
     if (!items || items.length === 0) return;
@@ -69,7 +83,7 @@ function buildCaption({ liftsOpened, trailsOpened, liftsClosed, trailsClosed }) 
     const noun = n === 1 ? kindLabelSingular : `${kindLabelSingular}s`;
 
     // OPEN format (includes "new")
-    lines.push(`${n} new ${noun} open`);
+    lines.push(`${n} new ${noun} open today`);
 
     for (const name of items) lines.push(`(${name})`);
   }
@@ -81,7 +95,7 @@ function buildCaption({ liftsOpened, trailsOpened, liftsClosed, trailsClosed }) 
     const noun = n === 1 ? kindLabelSingular : `${kindLabelSingular}s`;
 
     // CLOSE format (NO "new")
-    lines.push(`${n} ${noun} closed`);
+    lines.push(`${n} ${noun} closed today`);
 
     for (const name of items) lines.push(`${name}`);
   }
@@ -551,7 +565,7 @@ if (TEST_ALWAYS_EVENT) {
 
     if (!caption) {
       // If buildCaption returns "" (no opens/closes), make a basic status line
-      caption = "Cypress update\n\nno lift/run status changes since last check.";
+      caption = "Cypress update\n\nno lift/run status changes today since last check.";
     }
 
     // Unique key each run so you can see it changing
