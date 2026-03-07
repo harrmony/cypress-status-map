@@ -1,10 +1,10 @@
 {
-  "fetched_at": "2026-03-07T05:53:06.835Z",
-  "source_updated": "2026-03-06T23:33:33Z",
-  "lifts_updated": "2026-03-06T23:33:33Z",
-  "trails_updated": "2026-03-06T23:33:33Z",
+  "fetched_at": "2026-03-07T06:37:16.091Z",
+  "source_updated": "2026-03-07T06:03:36Z",
+  "lifts_updated": "2026-03-07T06:03:36Z",
+  "trails_updated": "2026-03-07T05:55:27Z",
   "operations": {
-    "resortStatus": "Open",
+    "resortStatus": "Closed",
     "openTime": null,
     "closeTime": null,
     "nightOpenTime": null,
@@ -13,11 +13,11 @@
     "summerLiftStatus": null
   },
   "lifts": {
-    "Eagle Express": "open",
-    "Lions Express": "open",
+    "Eagle Express": "closed",
+    "Lions Express": "closed",
     "Raven Ridge": "closed",
-    "Easy Rider": "open",
-    "Sky Quad": "open",
+    "Easy Rider": "closed",
+    "Sky Quad": "closed",
     "Midway Chair": "closed"
   },
   "trails": {
@@ -72,11 +72,11 @@
     "Black Fly": "closed",
     "Shore Line": "closed",
     "Runway": "open",
-    "T-33": "open",
-    "Horsefly Canyon": "open",
-    "Glades": "open",
-    "Tomcat": "open",
-    "Ripcord": "open",
+    "T-33": "closed",
+    "Horsefly Canyon": "closed",
+    "Glades": "closed",
+    "Tomcat": "closed",
+    "Ripcord": "closed",
     "Top Gun": "closed",
     "Shuttle": "open",
     "Blaster": "open",
