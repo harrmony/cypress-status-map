@@ -85,7 +85,7 @@ function buildCaption({ liftsOpened, trailsOpened, liftsClosed, trailsClosed }) 
     // OPEN format (includes "new")
     lines.push(`${n} new ${noun} open today`);
 
-    for (const name of items) lines.push(`(${name})`);
+    for (const name of items) lines.push(`  • ${name}`);
   }
 
   function addCloseBlock(kindLabelSingular, items) {
@@ -97,7 +97,7 @@ function buildCaption({ liftsOpened, trailsOpened, liftsClosed, trailsClosed }) 
     // CLOSE format (NO "new")
     lines.push(`${n} ${noun} closed today`);
 
-    for (const name of items) lines.push(`${name}`);
+    for (const name of items) lines.push(`  • ${name}`);
   }
 
   // OPENINGS

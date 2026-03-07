@@ -88,7 +88,7 @@ async function generateCaptionedImage({ caption }) {
   let y = padding;
 
   const headerSize = Math.max(110, Math.round(width * 0.08));      // big
-  const dateSize   = Math.max(72, Math.round(width * 0.049));    // 2-ish sizes smaller
+  const dateSize   = Math.max(64, Math.round(width * 0.049));    // 2-ish sizes smaller
   const mainSize   = Math.max(85, Math.round(width * 0.056));     // big
   const itemSize   = Math.max(72, Math.round(width * 0.049));     // 2-ish sizes smaller
   const headerLH   = Math.round(headerSize * 1.15);
@@ -167,7 +167,7 @@ async function generateCaptionedImage({ caption }) {
     }
 
     // 3) Bracket lines
-    const isBracket = trimmed.startsWith("(") && trimmed.endsWith(")");
+    const isBracket = trimmed.startsWith("•");
 
     if (isBracket) {
       const wrapped = wrapLine(trimmed, 28);
