@@ -74,7 +74,6 @@ function buildCaption({ liftsOpened, trailsOpened, liftsClosed, trailsClosed }) 
   lines.push("Cypress Update");
   lines.push(headerDate);
   lines.push("");
-  lines.push("");
 
   function addOpenBlock(kindLabelSingular, items) {
     if (!items || items.length === 0) return;
