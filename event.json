@@ -36,8 +36,8 @@
   },
   "placeholders": {
     "screenshot_path": null,
-    "instagram_posted": false,
-    "instagram_post_id": null,
+    "instagram_posted": true,
+    "instagram_post_id": "18108203050765894",
     "caption_image": "Cypress Update\nSaturday, March 7\n\n\n\n\n4 runs closed today\nGlades\nHorsefly Canyon\nRipcord\nTomcat",
     "caption_ig": "Cypress Update\nSaturday, March 7\n\n\n\n\n4 runs closed today\nGlades\nHorsefly Canyon\nRipcord\nTomcat\n\nLive map: https://harrmony.github.io/cypress-status-map/"
   }
