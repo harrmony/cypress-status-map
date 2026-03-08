@@ -1,23 +1,23 @@
 {
-  "key": "2026-03-07_10am_vs_2026-03-06_3pm",
-  "created_at": "2026-03-07T18:19:20.872Z",
+  "key": "2026-03-08_10am_vs_2026-03-07_3pm",
+  "created_at": "2026-03-08T17:19:23.375Z",
   "compare": {
     "from": {
       "label": "yesterday_3pm",
-      "fetched_at": "2026-03-06T22:49:13.406Z"
+      "fetched_at": "2026-03-07T22:59:01.991Z"
     },
     "to": {
       "label": "today_10am",
-      "fetched_at": "2026-03-07T18:19:20.861Z"
+      "fetched_at": "2026-03-08T17:19:23.364Z"
     }
   },
   "summary": {
     "opened_total": 0,
-    "closed_total": 4,
+    "closed_total": 2,
     "opened_lifts": 0,
     "closed_lifts": 0,
     "opened_trails": 0,
-    "closed_trails": 4
+    "closed_trails": 2
   },
   "details": {
     "lifts": {
@@ -27,18 +27,16 @@
     "trails": {
       "opened": [],
       "closed": [
-        "Glades",
-        "Horsefly Canyon",
-        "Ripcord",
-        "Tomcat"
+        "Russel",
+        "Sitzmark"
       ]
     }
   },
   "placeholders": {
     "screenshot_path": null,
-    "instagram_posted": true,
-    "instagram_post_id": "18108203050765894",
-    "caption_image": "Cypress Update\nSaturday, March 7\n\n\n\n\n4 runs closed today\nGlades\nHorsefly Canyon\nRipcord\nTomcat",
-    "caption_ig": "Cypress Update\nSaturday, March 7\n\n\n\n\n4 runs closed today\nGlades\nHorsefly Canyon\nRipcord\nTomcat\n\nLive map: https://harrmony.github.io/cypress-status-map/"
+    "instagram_posted": false,
+    "instagram_post_id": null,
+    "caption_image": "Cypress Update\nSunday, March 8\n\n\n\n2 runs closed today\n  • Russel\n  • Sitzmark",
+    "caption_ig": "Cypress Update\nSunday, March 8\n\n\n\n2 runs closed today\n  • Russel\n  • Sitzmark\n\nLive map: https://harrmony.github.io/cypress-status-map/"
   }
 }
