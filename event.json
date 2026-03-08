@@ -34,8 +34,8 @@
   },
   "placeholders": {
     "screenshot_path": null,
-    "instagram_posted": false,
-    "instagram_post_id": null,
+    "instagram_posted": true,
+    "instagram_post_id": "17877616635511097",
     "caption_image": "Cypress Update\nSunday, March 8\n\n\n\n2 runs closed today\n  • Russel\n  • Sitzmark",
     "caption_ig": "Cypress Update\nSunday, March 8\n\n\n\n2 runs closed today\n  • Russel\n  • Sitzmark\n\nLive map: https://harrmony.github.io/cypress-status-map/"
   }
