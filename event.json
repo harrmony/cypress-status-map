@@ -54,8 +54,8 @@
   },
   "placeholders": {
     "screenshot_path": null,
-    "instagram_posted": false,
-    "instagram_post_id": null,
+    "instagram_posted": true,
+    "instagram_post_id": "18361548286161693",
     "caption_image": "Cypress Update\nMonday, March 9\n\n\n\n22 runs closed from today\n  • 4th Lake\n  • Brothers Canyon West\n  • Burfield\n  • Cat Track (lower)\n  • Cross Glades\n  • Five Lakes\n  • Hollyburn\n  • Lower Powerline\n  • Lower Telemark\n  • Lower Wells Grey\n  • Old Rope Tow\n  • Pacific\n  • Pop Fly\n  • Roller Coaster\n  • Romstad\n  • Sidewinder\n  • Sitzmark (backside)\n  • Ski School Flats\n  • Triangle Lake\n  • Triangle Meadows\n  • Upper Powerline\n  • Upper Wells Grey",
     "caption_ig": "Cypress Update\nMonday, March 9\n\n\n\n22 runs closed from today\n  • 4th Lake\n  • Brothers Canyon West\n  • Burfield\n  • Cat Track (lower)\n  • Cross Glades\n  • Five Lakes\n  • Hollyburn\n  • Lower Powerline\n  • Lower Telemark\n  • Lower Wells Grey\n  • Old Rope Tow\n  • Pacific\n  • Pop Fly\n  • Roller Coaster\n  • Romstad\n  • Sidewinder\n  • Sitzmark (backside)\n  • Ski School Flats\n  • Triangle Lake\n  • Triangle Meadows\n  • Upper Powerline\n  • Upper Wells Grey\n\nLive map: https://harrmony.github.io/cypress-status-map/"
   }
