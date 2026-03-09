@@ -37,22 +37,43 @@ function getVancouverParts(date = new Date()) {
 //HELPER FUNCTIONS FOR CAPTION BUILDING
 
 // ---- Caption helpers (smart grammar) ----
-function plural(n, one, many = one + "s") {
-  return n === 1 ? one : many;
-}
 
-function humanList(items, max = 6) {
-  if (!items || items.length === 0) return null;
+async function getMappedNames() {
+  const mappedLifts = new Set();
+  const mappedTrails = new Set();
 
-  const shown = items.slice(0, max);
-  const more = items.length - shown.length;
+  // Read curved overlays
+  try {
+    const curvesJson = JSON.parse(await fs.readFile("../main/curves.json", "utf8"));
+    const curves = curvesJson?.curves ?? [];
 
-  const joined =
-    shown.length === 1 ? shown[0]
-    : shown.length === 2 ? `${shown[0]} and ${shown[1]}`
-    : `${shown.slice(0, -1).join(", ")}, and ${shown[shown.length - 1]}`;
+    for (const item of curves) {
+      if (!item?.name || !item?.kind) continue;
+      if (item.kind === "lift") mappedLifts.add(item.name);
+      if (item.kind === "trail") mappedTrails.add(item.name);
+    }
+  } catch (err) {
+    throw new Error(`Failed reading ../main/curves.json: ${err.message}`);
+  }
 
-  return more > 0 ? `${joined} (+${more} more)` : joined;
+  // Read straight overlays
+  try {
+    const overlaysJson = JSON.parse(await fs.readFile("../main/overlays.geojson", "utf8"));
+    const features = overlaysJson?.features ?? [];
+
+    for (const feature of features) {
+      const kind = feature?.properties?.kind;
+      const name = feature?.properties?.name;
+      if (!name || !kind) continue;
+
+      if (kind === "lift") mappedLifts.add(name);
+      if (kind === "trail") mappedTrails.add(name);
+    }
+  } catch (err) {
+    throw new Error(`Failed reading ../main/overlays.geojson: ${err.message}`);
+  }
+
+  return { mappedLifts, mappedTrails };
 }
 
 function getTodayHeaderDate() {
@@ -82,7 +103,7 @@ function buildCaption({ liftsOpened, trailsOpened, liftsClosed, trailsClosed }) 
     const noun = n === 1 ? kindLabelSingular : `${kindLabelSingular}s`;
 
     // OPEN format (includes "new")
-    lines.push(`${n} new ${noun} open today`);
+    lines.push(`${n} new ${noun} open from today`);
 
     for (const name of items) lines.push(`  • ${name}`);
   }
@@ -94,7 +115,7 @@ function buildCaption({ liftsOpened, trailsOpened, liftsClosed, trailsClosed }) 
     const noun = n === 1 ? kindLabelSingular : `${kindLabelSingular}s`;
 
     // CLOSE format (NO "new")
-    lines.push(`${n} ${noun} closed today`);
+    lines.push(`${n} ${noun} closed from today`);
 
     for (const name of items) lines.push(`  • ${name}`);
   }
@@ -328,6 +349,9 @@ const res = await fetch(URL, { headers: { accept: "application/json" } });
 if (!res.ok) throw new Error(`HTTP ${res.status}`);
 
 const data = await res.json();
+const { mappedLifts, mappedTrails } = await getMappedNames();
+
+console.log(`[map-filter] mapped lifts=${mappedLifts.size}, mapped trails=${mappedTrails.size}`);
 
 const lifts = {};
 const trails = {};
@@ -335,12 +359,19 @@ const trails = {};
 const areas = data?.facilities?.areas?.area ?? [];
 for (const area of areas) {
   for (const lift of (area?.lifts?.lift ?? [])) {
-    lifts[lift.name] = normalizeStatus(lift.statusIcon || lift.status);
+    if (mappedLifts.has(lift.name)) {
+      lifts[lift.name] = normalizeStatus(lift.statusIcon || lift.status);
+    }
   }
+
   for (const trail of (area?.trails?.trail ?? [])) {
-    trails[trail.name] = normalizeStatus(trail.statusIcon || trail.status);
+    if (mappedTrails.has(trail.name)) {
+      trails[trail.name] = normalizeStatus(trail.statusIcon || trail.status);
+    }
   }
 }
+
+console.log(`[map-filter] kept lifts=${Object.keys(lifts).length}, kept trails=${Object.keys(trails).length}`);
 
 const out = {
   fetched_at: new Date().toISOString(),
