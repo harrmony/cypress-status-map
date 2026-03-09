@@ -125,7 +125,6 @@ function buildCaption({ liftsOpened, trailsOpened, liftsClosed, trailsClosed }) 
 
   if (liftsOpened?.length && trailsOpened?.length) {
     lines.push("");
-    lines.push("");
   }
 
   addOpenBlock("trail", trailsOpened);
@@ -133,14 +132,12 @@ function buildCaption({ liftsOpened, trailsOpened, liftsClosed, trailsClosed }) 
   // Space before closures
   if ((liftsClosed?.length || 0) + (trailsClosed?.length || 0) > 0) {
     lines.push("");
-    lines.push("");
   }
 
   // CLOSURES
   addCloseBlock("chair", liftsClosed);
 
   if (liftsClosed?.length && trailsClosed?.length) {
-    lines.push("");
     lines.push("");
   }
 
