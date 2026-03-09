@@ -273,6 +273,40 @@ async function publishContainer(creationId) {
   return resp.id; // ig media id
 }
 
+function isTransientGraphError(err) {
+  const msg = String(err?.message || "");
+  return (
+    msg.includes('"is_transient":true') ||
+    msg.includes("HTTP 500") ||
+    msg.includes('"code":2')
+  );
+}
+
+async function publishContainerWithRetry(creationId, {
+  maxAttempts = 4,
+  delayMs = 10000
+} = {}) {
+  let lastErr;
+
+  for (let attempt = 1; attempt <= maxAttempts; attempt++) {
+    try {
+      console.log(`[post] Publishing attempt ${attempt}/${maxAttempts}...`);
+      return await publishContainer(creationId);
+    } catch (err) {
+      lastErr = err;
+
+      if (!isTransientGraphError(err) || attempt === maxAttempts) {
+        throw err;
+      }
+
+      console.warn(`[post] Transient publish failure. Retrying in ${delayMs / 1000}s...`);
+      await sleep(delayMs);
+    }
+  }
+
+  throw lastErr;
+}
+
 async function waitUntilFinished(creationId, { maxWaitMs = 2 * 60 * 1000 } = {}) {
   const start = Date.now();
   while (true) {
@@ -390,7 +424,10 @@ async function main() {
   await waitUntilFinished(creationId);
 
   console.log("[post] Publishing...");
-  const mediaId = await publishContainer(creationId);
+  const mediaId = await publishContainerWithRetry(creationId, {
+    maxAttempts: 4,
+    delayMs: 15000
+  });
 
   console.log(`[done] Published IG media id: ${mediaId}`);
 
