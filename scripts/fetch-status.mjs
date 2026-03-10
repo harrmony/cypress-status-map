@@ -103,7 +103,7 @@ function buildCaption({ liftsOpened, trailsOpened, liftsClosed, trailsClosed }) 
     const noun = n === 1 ? kindLabelSingular : `${kindLabelSingular}s`;
 
     // OPEN format (includes "new")
-    lines.push(`${n} new ${noun} open from today`);
+    lines.push(`${n} new ${noun} open today`);
 
     for (const name of items) lines.push(`  • ${name}`);
   }
@@ -127,7 +127,7 @@ function buildCaption({ liftsOpened, trailsOpened, liftsClosed, trailsClosed }) 
     lines.push("");
   }
 
-  addOpenBlock("trail", trailsOpened);
+  addOpenBlock("run", trailsOpened);
 
   // Space before closures
   if ((liftsClosed?.length || 0) + (trailsClosed?.length || 0) > 0) {
@@ -141,7 +141,7 @@ function buildCaption({ liftsOpened, trailsOpened, liftsClosed, trailsClosed }) 
     lines.push("");
   }
 
-  addCloseBlock("run", trailsClosed); // using "run" for closures as requested
+  addCloseBlock("run", trailsClosed); 
 
   return lines.join("\n").trim();
 }
