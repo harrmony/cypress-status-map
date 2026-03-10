@@ -36,8 +36,8 @@
   },
   "placeholders": {
     "screenshot_path": null,
-    "instagram_posted": false,
-    "instagram_post_id": null,
+    "instagram_posted": true,
+    "instagram_post_id": "18341839690211906",
     "caption_image": "Cypress Update\nTuesday, March 10\n\n1 new trail open from today\n  • Unrun\n\n2 runs closed from today\n  • Lower Bowen\n  • Upper Bowen",
     "caption_ig": "Cypress Update\nTuesday, March 10\n\n1 new trail open from today\n  • Unrun\n\n2 runs closed from today\n  • Lower Bowen\n  • Upper Bowen\n\nLive map: https://harrmony.github.io/cypress-status-map/"
   }
