@@ -1,23 +1,23 @@
 {
-  "key": "2026-03-10_10am_vs_2026-03-09_3pm",
-  "created_at": "2026-03-10T17:30:12.948Z",
+  "key": "2026-03-11_10am_vs_2026-03-10_3pm",
+  "created_at": "2026-03-11T17:54:15.894Z",
   "compare": {
     "from": {
       "label": "yesterday_3pm",
-      "fetched_at": "2026-03-09T21:50:17.427Z"
+      "fetched_at": "2026-03-10T21:56:27.432Z"
     },
     "to": {
       "label": "today_10am",
-      "fetched_at": "2026-03-10T17:30:12.940Z"
+      "fetched_at": "2026-03-11T17:54:15.886Z"
     }
   },
   "summary": {
-    "opened_total": 1,
-    "closed_total": 2,
+    "opened_total": 6,
+    "closed_total": 0,
     "opened_lifts": 0,
     "closed_lifts": 0,
-    "opened_trails": 1,
-    "closed_trails": 2
+    "opened_trails": 6,
+    "closed_trails": 0
   },
   "details": {
     "lifts": {
@@ -26,19 +26,21 @@
     },
     "trails": {
       "opened": [
-        "Unrun"
-      ],
-      "closed": [
+        "Glades",
+        "Horsefly Canyon",
         "Lower Bowen",
+        "Ripcord",
+        "Tomcat",
         "Upper Bowen"
-      ]
+      ],
+      "closed": []
     }
   },
   "placeholders": {
     "screenshot_path": null,
-    "instagram_posted": true,
-    "instagram_post_id": "18341839690211906",
-    "caption_image": "Cypress Update\nTuesday, March 10\n\n1 new trail open from today\n  • Unrun\n\n2 runs closed from today\n  • Lower Bowen\n  • Upper Bowen",
-    "caption_ig": "Cypress Update\nTuesday, March 10\n\n1 new trail open from today\n  • Unrun\n\n2 runs closed from today\n  • Lower Bowen\n  • Upper Bowen\n\nLive map: https://harrmony.github.io/cypress-status-map/"
+    "instagram_posted": false,
+    "instagram_post_id": null,
+    "caption_image": "Cypress Update\nWednesday, March 11\n\n6 new trails open from today\n  • Glades\n  • Horsefly Canyon\n  • Lower Bowen\n  • Ripcord\n  • Tomcat\n  • Upper Bowen",
+    "caption_ig": "Cypress Update\nWednesday, March 11\n\n6 new trails open from today\n  • Glades\n  • Horsefly Canyon\n  • Lower Bowen\n  • Ripcord\n  • Tomcat\n  • Upper Bowen\n\nLive map: https://harrmony.github.io/cypress-status-map/"
   }
 }
