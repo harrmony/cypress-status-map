@@ -1,46 +1,41 @@
 {
-  "key": "2026-03-11_10am_vs_2026-03-10_3pm",
-  "created_at": "2026-03-11T17:54:15.894Z",
+  "key": "2026-03-12_10am_vs_2026-03-11_3pm",
+  "created_at": "2026-03-12T17:36:01.094Z",
   "compare": {
     "from": {
       "label": "yesterday_3pm",
-      "fetched_at": "2026-03-10T21:56:27.432Z"
+      "fetched_at": "2026-03-11T21:51:29.457Z"
     },
     "to": {
       "label": "today_10am",
-      "fetched_at": "2026-03-11T17:54:15.886Z"
+      "fetched_at": "2026-03-12T17:36:01.084Z"
     }
   },
   "summary": {
-    "opened_total": 6,
+    "opened_total": 1,
     "closed_total": 0,
-    "opened_lifts": 0,
+    "opened_lifts": 1,
     "closed_lifts": 0,
-    "opened_trails": 6,
+    "opened_trails": 0,
     "closed_trails": 0
   },
   "details": {
     "lifts": {
-      "opened": [],
+      "opened": [
+        "Midway Chair"
+      ],
       "closed": []
     },
     "trails": {
-      "opened": [
-        "Glades",
-        "Horsefly Canyon",
-        "Lower Bowen",
-        "Ripcord",
-        "Tomcat",
-        "Upper Bowen"
-      ],
+      "opened": [],
       "closed": []
     }
   },
   "placeholders": {
     "screenshot_path": null,
-    "instagram_posted": true,
-    "instagram_post_id": "18050771450509940",
-    "caption_image": "Cypress Update\nWednesday, March 11\n\n778 new trails open from today\n  • Glades\n  • Horsefly Canyon\n  • Lower Bowen\n  • Ripcord\n  • Tomcat\n  • Upper Bowen",
-    "caption_ig": "Cypress Update\nWednesday, March 11\n\n6 new trails open from today\n  • Glades\n  • Horsefly Canyon\n  • Lower Bowen\n  • Ripcord\n  • Tomcat\n  • Upper Bowen\n\nLive map: https://harrmony.github.io/cypress-status-map/"
+    "instagram_posted": false,
+    "instagram_post_id": null,
+    "caption_image": "Cypress Update\nThursday, March 12\n\n1 new chair open today\n  • Midway Chair",
+    "caption_ig": "Cypress Update\nThursday, March 12\n\n1 new chair open today\n  • Midway Chair\n\nLive map: https://harrmony.github.io/cypress-status-map/"
   }
 }
