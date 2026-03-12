@@ -33,8 +33,8 @@
   },
   "placeholders": {
     "screenshot_path": null,
-    "instagram_posted": false,
-    "instagram_post_id": null,
+    "instagram_posted": true,
+    "instagram_post_id": "17949169176112905",
     "caption_image": "Cypress Update\nThursday, March 12\n\n1 new chair open today\n  • Midway Chair",
     "caption_ig": "Cypress Update\nThursday, March 12\n\n1 new chair open today\n  • Midway Chair\n\nLive map: https://harrmony.github.io/cypress-status-map/"
   }
