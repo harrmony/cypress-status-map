@@ -38,9 +38,9 @@
   },
   "placeholders": {
     "screenshot_path": null,
-    "instagram_posted": true,
+    "instagram_posted": false,
     "instagram_post_id": "18352071271236427",
-    "caption_image": "Cypress Update\nWednesday, March 11\n\n6 new trails open from today\n  • Glades\n  • Horsefly Canyon\n  • Lower Bowen\n  • Ripcord\n  • Tomcat\n  • Upper Bowen",
+    "caption_image": "Cypress Update\nWednesday, March 11\n\n778 new trails open from today\n  • Glades\n  • Horsefly Canyon\n  • Lower Bowen\n  • Ripcord\n  • Tomcat\n  • Upper Bowen",
     "caption_ig": "Cypress Update\nWednesday, March 11\n\n6 new trails open from today\n  • Glades\n  • Horsefly Canyon\n  • Lower Bowen\n  • Ripcord\n  • Tomcat\n  • Upper Bowen\n\nLive map: https://harrmony.github.io/cypress-status-map/"
   }
 }
