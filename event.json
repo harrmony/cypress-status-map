@@ -1,41 +1,43 @@
 {
-  "key": "2026-03-12_10am_vs_2026-03-11_3pm",
-  "created_at": "2026-03-12T17:36:01.094Z",
+  "key": "2026-03-14_10am_vs_2026-03-13_3pm",
+  "created_at": "2026-03-14T17:13:41.722Z",
   "compare": {
     "from": {
       "label": "yesterday_3pm",
-      "fetched_at": "2026-03-11T21:51:29.457Z"
+      "fetched_at": "2026-03-13T21:54:26.686Z"
     },
     "to": {
       "label": "today_10am",
-      "fetched_at": "2026-03-12T17:36:01.084Z"
+      "fetched_at": "2026-03-14T17:13:41.709Z"
     }
   },
   "summary": {
-    "opened_total": 1,
-    "closed_total": 0,
-    "opened_lifts": 1,
-    "closed_lifts": 0,
+    "opened_total": 0,
+    "closed_total": 2,
+    "opened_lifts": 0,
+    "closed_lifts": 1,
     "opened_trails": 0,
-    "closed_trails": 0
+    "closed_trails": 1
   },
   "details": {
     "lifts": {
-      "opened": [
+      "opened": [],
+      "closed": [
         "Midway Chair"
-      ],
-      "closed": []
+      ]
     },
     "trails": {
       "opened": [],
-      "closed": []
+      "closed": [
+        "Upper Bowen"
+      ]
     }
   },
   "placeholders": {
     "screenshot_path": null,
-    "instagram_posted": true,
-    "instagram_post_id": "17949169176112905",
-    "caption_image": "Cypress Update\nThursday, March 12\n\n1 new chair open today\n  • Midway Chair",
-    "caption_ig": "Cypress Update\nThursday, March 12\n\n1 new chair open today\n  • Midway Chair\n\nLive map: https://harrmony.github.io/cypress-status-map/"
+    "instagram_posted": false,
+    "instagram_post_id": null,
+    "caption_image": "Cypress Update\nSaturday, March 14\n\n\n1 chair closed from today\n  • Midway Chair\n\n1 run closed from today\n  • Upper Bowen",
+    "caption_ig": "Cypress Update\nSaturday, March 14\n\n\n1 chair closed from today\n  • Midway Chair\n\n1 run closed from today\n  • Upper Bowen\n\nLive map: https://harrmony.github.io/cypress-status-map/"
   }
 }
