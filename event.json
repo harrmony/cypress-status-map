@@ -35,8 +35,8 @@
   },
   "placeholders": {
     "screenshot_path": null,
-    "instagram_posted": false,
-    "instagram_post_id": null,
+    "instagram_posted": true,
+    "instagram_post_id": "18089294765517577",
     "caption_image": "Cypress Update\nSaturday, March 14\n\n\n1 chair closed from today\n  • Midway Chair\n\n1 run closed from today\n  • Upper Bowen",
     "caption_ig": "Cypress Update\nSaturday, March 14\n\n\n1 chair closed from today\n  • Midway Chair\n\n1 run closed from today\n  • Upper Bowen\n\nLive map: https://harrmony.github.io/cypress-status-map/"
   }
