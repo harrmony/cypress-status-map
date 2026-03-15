@@ -1,8 +1,8 @@
 {
-  "fetched_at": "2026-03-15T14:23:05.821Z",
-  "source_updated": "2026-03-15T01:25:06Z",
-  "lifts_updated": "2026-03-15T01:25:06Z",
-  "trails_updated": "2026-03-15T01:25:06Z",
+  "fetched_at": "2026-03-15T14:55:10.144Z",
+  "source_updated": "2026-03-15T14:28:29Z",
+  "lifts_updated": "2026-03-15T14:27:05Z",
+  "trails_updated": "2026-03-15T14:28:29Z",
   "operations": {
     "resortStatus": "Open",
     "openTime": null,
@@ -18,7 +18,7 @@
     "Raven Ridge": "closed",
     "Easy Rider": "open",
     "Sky Quad": "open",
-    "Midway Chair": "closed"
+    "Midway Chair": "open"
   },
   "trails": {
     "Panorama": "open",
@@ -42,7 +42,7 @@
     "Horizon By-Pass": "open",
     "Lower Bowen": "open",
     "Hutch": "open",
-    "Upper Bowen": "closed",
+    "Upper Bowen": "open",
     "Bowen Face": "closed",
     "Gibsons": "closed",
     "Upper Rainbow": "closed",
