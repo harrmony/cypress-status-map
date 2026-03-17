@@ -524,6 +524,8 @@ if (snapToday10Valid && snapYest3 && !alreadyFired) {
         screenshot_path: null,
         instagram_posted: false,
         instagram_post_id: null,
+        instagram_story_posted: false,
+        instagram_story_id: null,
         caption_image,
         caption_ig
       }
