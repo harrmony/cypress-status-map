@@ -33,8 +33,8 @@
   },
   "placeholders": {
     "screenshot_path": null,
-    "instagram_posted": false,
-    "instagram_post_id": null,
+    "instagram_posted": true,
+    "instagram_post_id": "17958758997070940",
     "caption_image": "Cypress Update\nMonday, March 16\n\n1 new run open today\n  • Gibsons",
     "caption_ig": "Cypress Update\nMonday, March 16\n\n1 new run open today\n  • Gibsons\n\nLive map: https://harrmony.github.io/cypress-status-map/"
   }
