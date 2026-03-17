@@ -348,6 +348,17 @@ async function waitForImageUrl(url, { maxWaitMs = 90_000, intervalMs = 3_000 } =
   }
 }
 
+async function createStoryContainer({ imageUrl }) {
+  const resp = await graph(`${IG_USER_ID}/media`, {
+    method: "POST",
+    params: {
+      image_url: imageUrl,
+      media_type: "STORIES"
+    }
+  });
+  return resp.id;
+}
+
 async function main() {
   const GENERATE_ONLY = process.argv.includes("--generate-only");
 
@@ -430,6 +441,36 @@ async function main() {
   });
 
   console.log(`[done] Published IG media id: ${mediaId}`);
+
+
+  // ---- POST COPY TO STORY ----
+  try {
+    console.log("[story] Creating story container...");
+
+    const storyCreationId = await createStoryContainer({
+      imageUrl: imageUrlForPost
+    });
+
+    console.log(`[story] Container created: ${storyCreationId}`);
+    await waitUntilFinished(storyCreationId);
+
+    console.log("[story] Publishing story...");
+    const storyMediaId = await publishContainerWithRetry(storyCreationId, {
+      maxAttempts: 4,
+      delayMs: 15000
+    });
+
+    console.log(`[done] Story published id: ${storyMediaId}`);
+
+    // Optional: store it
+    event.placeholders.instagram_story_posted = true;
+    event.placeholders.instagram_story_id = storyMediaId;
+
+  } catch (err) {
+    console.error("[story] Failed to post story:", err.message);
+    // Don't fail whole job if story fails
+  }
+  
 
   event.placeholders.instagram_posted = true;
   event.placeholders.instagram_post_id = mediaId;
