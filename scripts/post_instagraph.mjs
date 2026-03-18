@@ -401,7 +401,7 @@ async function main() {
   if (lines.length > 0) {
     captionIG =
       `${lines[0]}\n` +
-      `Live status map → link in bio\n\n` +
+      `For a live status map, see link in bio\n\n` +
       lines.slice(1).join("\n");
   } else {
     captionIG = captionImage;
