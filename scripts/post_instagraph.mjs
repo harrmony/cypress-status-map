@@ -82,19 +82,23 @@ async function generateCaptionedImage({ caption }) {
   const width = meta.width ?? 1080;
   const height = meta.height ?? 1080;
 
-  // Layout + typography (BIG)
-  const padding = Math.round(width * 0.06);
+  // Layout + typography
+  const rawLines = String(caption || "").replace(/\r/g, "").split("\n");
+  const bulletCount = rawLines.filter(line => line.trim().startsWith("•")).length;
+  const compactMode = bulletCount > 11;
+
+  const padding = Math.round(width * (compactMode ? 0.045 : 0.06));
   const x = padding;
   let y = padding;
 
-  const headerSize = Math.max(110, Math.round(width * 0.08));      // big
-  const dateSize   = Math.max(63, Math.round(width * 0.049));    // 2-ish sizes smaller
-  const mainSize   = Math.max(85, Math.round(width * 0.056));     // big
-  const itemSize   = Math.max(68, Math.round(width * 0.049));     // 2-ish sizes smaller
-  const headerLH   = Math.round(headerSize * 1.15);
-  const dateLH     = Math.round(dateSize * 1.15);
-  const mainLH     = Math.round(mainSize * 1.22);
-  const itemLH     = Math.round(itemSize * 1.22);
+  const headerSize = compactMode    ? Math.max(82, Math.round(width * 0.06))    : Math.max(110, Math.round(width * 0.08));
+  const dateSize = compactMode    ? Math.max(46, Math.round(width * 0.036))    : Math.max(63, Math.round(width * 0.049));
+  const mainSize = compactMode    ? Math.max(56, Math.round(width * 0.04))    : Math.max(85, Math.round(width * 0.056));
+  const itemSize = compactMode    ? Math.max(46, Math.round(width * 0.034))    : Math.max(68, Math.round(width * 0.049));
+  const headerLH = Math.round(headerSize * (compactMode ? 1.08 : 1.15));
+  const dateLH   = Math.round(dateSize * (compactMode ? 1.08 : 1.15));
+  const mainLH   = Math.round(mainSize * (compactMode ? 1.12 : 1.22));
+  const itemLH   = Math.round(itemSize * (compactMode ? 1.1 : 1.22));
 
   const headerColor = "#0B2D5C"; // dark blue
   const black = "#000000";
@@ -117,8 +121,6 @@ async function generateCaptionedImage({ caption }) {
     return out;
   }
 
-  const rawLines = String(caption || "").replace(/\r/g, "").split("\n");
-  
   // Build SVG text elements line-by-line
   const elements = [];
   let nonEmptyIndex = 0;
@@ -170,7 +172,7 @@ async function generateCaptionedImage({ caption }) {
     const isBracket = trimmed.startsWith("•");
 
     if (isBracket) {
-      const wrapped = wrapLine(trimmed, 28);
+      const wrapped = wrapLine(trimmed, compactMode ? 38 : 28);
 
       for (const w of wrapped) {
         elements.push(`
@@ -190,7 +192,7 @@ async function generateCaptionedImage({ caption }) {
     }
 
     // 4) Main lines
-    const wrapped = wrapLine(trimmed, 30);
+    const wrapped = wrapLine(trimmed, compactMode ? 40 : 30);
 
     for (const w of wrapped) {
       elements.push(`
