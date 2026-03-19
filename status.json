@@ -1,8 +1,8 @@
 {
-  "fetched_at": "2026-03-19T15:26:10.338Z",
-  "source_updated": "2026-03-19T14:50:33Z",
-  "lifts_updated": "2026-03-19T14:50:33Z",
-  "trails_updated": "2026-03-19T14:50:33Z",
+  "fetched_at": "2026-03-19T16:32:03.713Z",
+  "source_updated": "2026-03-19T16:12:58Z",
+  "lifts_updated": "2026-03-19T15:52:19Z",
+  "trails_updated": "2026-03-19T16:12:58Z",
   "operations": {
     "resortStatus": "Open",
     "openTime": null,
@@ -23,11 +23,11 @@
   "trails": {
     "Panorama": "open",
     "Windjammer": "open",
-    "Fork": "closed",
+    "Fork": "open",
     "Lower Fork": "closed",
     "PGS": "closed",
     "Cascade": "closed",
-    "Unrun": "closed",
+    "Unrun": "open",
     "Trumpeter": "closed",
     "Lower Trumpeter": "closed",
     "Hose Side": "closed",
@@ -77,9 +77,9 @@
     "Tomcat": "closed",
     "Ripcord": "closed",
     "Top Gun": "closed",
-    "Shuttle": "open",
-    "Blaster": "open",
-    "Hut Run": "open",
-    "Webb-Site": "open"
+    "Shuttle": "closed",
+    "Blaster": "closed",
+    "Hut Run": "closed",
+    "Webb-Site": "closed"
   }
 }
