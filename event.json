@@ -1,23 +1,23 @@
 {
-  "key": "2026-03-16_10am_vs_2026-03-15_3pm",
-  "created_at": "2026-03-16T17:14:59.212Z",
+  "key": "2026-03-19_10am_vs_2026-03-18_3pm",
+  "created_at": "2026-03-19T17:36:58.567Z",
   "compare": {
     "from": {
       "label": "yesterday_3pm",
-      "fetched_at": "2026-03-15T21:54:44.778Z"
+      "fetched_at": "2026-03-18T22:01:32.666Z"
     },
     "to": {
       "label": "today_10am",
-      "fetched_at": "2026-03-16T17:14:59.205Z"
+      "fetched_at": "2026-03-19T17:36:58.558Z"
     }
   },
   "summary": {
-    "opened_total": 1,
-    "closed_total": 0,
+    "opened_total": 0,
+    "closed_total": 19,
     "opened_lifts": 0,
     "closed_lifts": 0,
-    "opened_trails": 1,
-    "closed_trails": 0
+    "opened_trails": 0,
+    "closed_trails": 19
   },
   "details": {
     "lifts": {
@@ -25,19 +25,37 @@
       "closed": []
     },
     "trails": {
-      "opened": [
-        "Gibsons"
-      ],
-      "closed": []
+      "opened": [],
+      "closed": [
+        "Blaster",
+        "Cascade",
+        "Cat Track (upper)",
+        "Gibsons",
+        "Glades",
+        "Horizon",
+        "Horizon By-Pass",
+        "Horsefly Canyon",
+        "Humpty Dumpty",
+        "Hut Run",
+        "Hutch",
+        "Lower Bowen",
+        "Lower Fork",
+        "PGS",
+        "Ripcord",
+        "Shuttle",
+        "Tomcat",
+        "Upper Bowen",
+        "Webb-Site"
+      ]
     }
   },
   "placeholders": {
     "screenshot_path": null,
-    "instagram_posted": true,
-    "instagram_post_id": "17958758997070940",
+    "instagram_posted": false,
+    "instagram_post_id": null,
     "instagram_story_posted": false,
     "instagram_story_id": null,
-    "caption_image": "Cypress Update\nMonday, March 16\n\n1 new run open today\n  • Gibsons",
-    "caption_ig": "Cypress Update\nMonday, March 16\n\n1 new run open today\n  • Gibsons\n\nLive map: https://harrmony.github.io/cypress-status-map/"
+    "caption_image": "Cypress Update\nThursday, March 19\n\n\n19 runs closed from today\n  • Blaster\n  • Cascade\n  • Cat Track (upper)\n  • Gibsons\n  • Glades\n  • Horizon\n  • Horizon By-Pass\n  • Horsefly Canyon\n  • Humpty Dumpty\n  • Hut Run\n  • Hutch\n  • Lower Bowen\n  • Lower Fork\n  • PGS\n  • Ripcord\n  • Shuttle\n  • Tomcat\n  • Upper Bowen\n  • Webb-Site",
+    "caption_ig": "Cypress Update\nThursday, March 19\n\n\n19 runs closed from today\n  • Blaster\n  • Cascade\n  • Cat Track (upper)\n  • Gibsons\n  • Glades\n  • Horizon\n  • Horizon By-Pass\n  • Horsefly Canyon\n  • Humpty Dumpty\n  • Hut Run\n  • Hutch\n  • Lower Bowen\n  • Lower Fork\n  • PGS\n  • Ripcord\n  • Shuttle\n  • Tomcat\n  • Upper Bowen\n  • Webb-Site\n\nLive map: https://harrmony.github.io/cypress-status-map/"
   }
 }
