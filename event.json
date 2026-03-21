@@ -1,23 +1,23 @@
 {
-  "key": "2026-03-19_10am_vs_2026-03-18_3pm",
-  "created_at": "2026-03-19T17:36:58.567Z",
+  "key": "2026-03-21_10am_vs_2026-03-20_3pm",
+  "created_at": "2026-03-21T17:02:35.998Z",
   "compare": {
     "from": {
       "label": "yesterday_3pm",
-      "fetched_at": "2026-03-18T22:01:32.666Z"
+      "fetched_at": "2026-03-20T21:59:17.332Z"
     },
     "to": {
       "label": "today_10am",
-      "fetched_at": "2026-03-19T17:36:58.558Z"
+      "fetched_at": "2026-03-21T17:02:35.987Z"
     }
   },
   "summary": {
-    "opened_total": 0,
-    "closed_total": 19,
+    "opened_total": 9,
+    "closed_total": 2,
     "opened_lifts": 0,
     "closed_lifts": 0,
-    "opened_trails": 0,
-    "closed_trails": 19
+    "opened_trails": 9,
+    "closed_trails": 2
   },
   "details": {
     "lifts": {
@@ -25,37 +25,30 @@
       "closed": []
     },
     "trails": {
-      "opened": [],
-      "closed": [
-        "Blaster",
-        "Cascade",
+      "opened": [
         "Cat Track (upper)",
-        "Gibsons",
         "Glades",
         "Horizon",
-        "Horizon By-Pass",
         "Horsefly Canyon",
         "Humpty Dumpty",
-        "Hut Run",
         "Hutch",
-        "Lower Bowen",
-        "Lower Fork",
         "PGS",
         "Ripcord",
-        "Shuttle",
-        "Tomcat",
-        "Upper Bowen",
-        "Webb-Site"
+        "Tomcat"
+      ],
+      "closed": [
+        "3 Bears",
+        "Unrun"
       ]
     }
   },
   "placeholders": {
     "screenshot_path": null,
-    "instagram_posted": true,
-    "instagram_post_id": "17909534220183208",
-    "instagram_story_posted": true,
-    "instagram_story_id": "18388763077152891",
-    "caption_image": "Cypress Update\nThursday, March 19\n\n\n19 runs closed from today\n  • Blaster\n  • Cascade\n  • Cat Track (upper)\n  • Gibsons\n  • Glades\n  • Horizon\n  • Horizon By-Pass\n  • Horsefly Canyon\n  • Humpty Dumpty\n  • Hut Run\n  • Hutch\n  • Lower Bowen\n  • Lower Fork\n  • PGS\n  • Ripcord\n  • Shuttle\n  • Tomcat\n  • Upper Bowen\n  • Webb-Site",
-    "caption_ig": "Cypress Update\nThursday, March 19\n\n\n19 runs closed from today\n  • Blaster\n  • Cascade\n  • Cat Track (upper)\n  • Gibsons\n  • Glades\n  • Horizon\n  • Horizon By-Pass\n  • Horsefly Canyon\n  • Humpty Dumpty\n  • Hut Run\n  • Hutch\n  • Lower Bowen\n  • Lower Fork\n  • PGS\n  • Ripcord\n  • Shuttle\n  • Tomcat\n  • Upper Bowen\n  • Webb-Site\n\nLive map: https://harrmony.github.io/cypress-status-map/"
+    "instagram_posted": false,
+    "instagram_post_id": null,
+    "instagram_story_posted": false,
+    "instagram_story_id": null,
+    "caption_image": "Cypress Update\nSaturday, March 21\n\n9 new runs open today\n  • Cat Track (upper)\n  • Glades\n  • Horizon\n  • Horsefly Canyon\n  • Humpty Dumpty\n  • Hutch\n  • PGS\n  • Ripcord\n  • Tomcat\n\n2 runs closed from today\n  • 3 Bears\n  • Unrun",
+    "caption_ig": "Cypress Update\nSaturday, March 21\n\n9 new runs open today\n  • Cat Track (upper)\n  • Glades\n  • Horizon\n  • Horsefly Canyon\n  • Humpty Dumpty\n  • Hutch\n  • PGS\n  • Ripcord\n  • Tomcat\n\n2 runs closed from today\n  • 3 Bears\n  • Unrun\n\nLive map: https://harrmony.github.io/cypress-status-map/"
   }
 }
