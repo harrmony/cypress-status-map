@@ -44,10 +44,10 @@
   },
   "placeholders": {
     "screenshot_path": null,
-    "instagram_posted": false,
-    "instagram_post_id": null,
-    "instagram_story_posted": false,
-    "instagram_story_id": null,
+    "instagram_posted": true,
+    "instagram_post_id": "18426419323184042",
+    "instagram_story_posted": true,
+    "instagram_story_id": "17879410188519631",
     "caption_image": "Cypress Update\nSaturday, March 21\n\n9 new runs open today\n  • Cat Track (upper)\n  • Glades\n  • Horizon\n  • Horsefly Canyon\n  • Humpty Dumpty\n  • Hutch\n  • PGS\n  • Ripcord\n  • Tomcat\n\n2 runs closed from today\n  • 3 Bears\n  • Unrun",
     "caption_ig": "Cypress Update\nSaturday, March 21\n\n9 new runs open today\n  • Cat Track (upper)\n  • Glades\n  • Horizon\n  • Horsefly Canyon\n  • Humpty Dumpty\n  • Hutch\n  • PGS\n  • Ripcord\n  • Tomcat\n\n2 runs closed from today\n  • 3 Bears\n  • Unrun\n\nLive map: https://harrmony.github.io/cypress-status-map/"
   }
