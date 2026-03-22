@@ -1,23 +1,23 @@
 {
-  "key": "2026-03-21_10am_vs_2026-03-20_3pm",
-  "created_at": "2026-03-21T17:02:35.998Z",
+  "key": "2026-03-22_10am_vs_2026-03-21_3pm",
+  "created_at": "2026-03-22T17:19:04.160Z",
   "compare": {
     "from": {
       "label": "yesterday_3pm",
-      "fetched_at": "2026-03-20T21:59:17.332Z"
+      "fetched_at": "2026-03-21T21:51:25.956Z"
     },
     "to": {
       "label": "today_10am",
-      "fetched_at": "2026-03-21T17:02:35.987Z"
+      "fetched_at": "2026-03-22T17:19:04.148Z"
     }
   },
   "summary": {
-    "opened_total": 9,
-    "closed_total": 2,
+    "opened_total": 2,
+    "closed_total": 0,
     "opened_lifts": 0,
     "closed_lifts": 0,
-    "opened_trails": 9,
-    "closed_trails": 2
+    "opened_trails": 2,
+    "closed_trails": 0
   },
   "details": {
     "lifts": {
@@ -26,29 +26,19 @@
     },
     "trails": {
       "opened": [
-        "Cat Track (upper)",
-        "Glades",
-        "Horizon",
-        "Horsefly Canyon",
-        "Humpty Dumpty",
-        "Hutch",
-        "PGS",
-        "Ripcord",
-        "Tomcat"
+        "Cascade",
+        "Lower Fork"
       ],
-      "closed": [
-        "3 Bears",
-        "Unrun"
-      ]
+      "closed": []
     }
   },
   "placeholders": {
     "screenshot_path": null,
-    "instagram_posted": true,
-    "instagram_post_id": "18426419323184042",
-    "instagram_story_posted": true,
-    "instagram_story_id": "17879410188519631",
-    "caption_image": "Cypress Update\nSaturday, March 21\n\n9 new runs open today\n  • Cat Track (upper)\n  • Glades\n  • Horizon\n  • Horsefly Canyon\n  • Humpty Dumpty\n  • Hutch\n  • PGS\n  • Ripcord\n  • Tomcat\n\n2 runs closed from today\n  • 3 Bears\n  • Unrun",
-    "caption_ig": "Cypress Update\nSaturday, March 21\n\n9 new runs open today\n  • Cat Track (upper)\n  • Glades\n  • Horizon\n  • Horsefly Canyon\n  • Humpty Dumpty\n  • Hutch\n  • PGS\n  • Ripcord\n  • Tomcat\n\n2 runs closed from today\n  • 3 Bears\n  • Unrun\n\nLive map: https://harrmony.github.io/cypress-status-map/"
+    "instagram_posted": false,
+    "instagram_post_id": null,
+    "instagram_story_posted": false,
+    "instagram_story_id": null,
+    "caption_image": "Cypress Update\nSunday, March 22\n\n2 new runs open today\n  • Cascade\n  • Lower Fork",
+    "caption_ig": "Cypress Update\nSunday, March 22\n\n2 new runs open today\n  • Cascade\n  • Lower Fork\n\nLive map: https://harrmony.github.io/cypress-status-map/"
   }
 }
