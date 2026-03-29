@@ -1,10 +1,10 @@
 {
-  "fetched_at": "2026-03-29T15:50:17.434Z",
-  "source_updated": "2026-03-29T15:43:33Z",
-  "lifts_updated": "2026-03-29T15:43:33Z",
-  "trails_updated": "2026-03-29T15:43:33Z",
+  "fetched_at": "2026-03-29T16:22:53.343Z",
+  "source_updated": "2026-03-29T15:53:40Z",
+  "lifts_updated": "2026-03-29T15:53:40Z",
+  "trails_updated": "2026-03-29T15:53:40Z",
   "operations": {
-    "resortStatus": "Closed",
+    "resortStatus": "Open",
     "openTime": null,
     "closeTime": null,
     "nightOpenTime": null,
@@ -13,10 +13,10 @@
     "summerLiftStatus": null
   },
   "lifts": {
-    "Eagle Express": "closed",
-    "Lions Express": "closed",
+    "Eagle Express": "open",
+    "Lions Express": "open",
     "Raven Ridge": "closed",
-    "Easy Rider": "closed",
+    "Easy Rider": "open",
     "Sky Quad": "closed",
     "Midway Chair": "closed"
   },
