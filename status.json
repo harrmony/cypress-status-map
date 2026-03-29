@@ -1,8 +1,8 @@
 {
-  "fetched_at": "2026-03-29T14:48:15.474Z",
-  "source_updated": "2026-03-29T05:29:46Z",
-  "lifts_updated": "2026-03-29T05:29:46Z",
-  "trails_updated": "2026-03-29T01:53:01Z",
+  "fetched_at": "2026-03-29T15:18:08.246Z",
+  "source_updated": "2026-03-29T15:11:55Z",
+  "lifts_updated": "2026-03-29T15:11:55Z",
+  "trails_updated": "2026-03-29T15:11:55Z",
   "operations": {
     "resortStatus": "Closed",
     "openTime": null,
@@ -28,7 +28,7 @@
     "PGS": "open",
     "Cascade": "open",
     "Unrun": "open",
-    "Trumpeter": "closed",
+    "Trumpeter": "open",
     "Lower Trumpeter": "closed",
     "Hose Side": "closed",
     "B-Hip": "closed",
