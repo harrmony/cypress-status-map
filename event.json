@@ -35,10 +35,10 @@
   },
   "placeholders": {
     "screenshot_path": null,
-    "instagram_posted": false,
-    "instagram_post_id": null,
-    "instagram_story_posted": false,
-    "instagram_story_id": null,
+    "instagram_posted": true,
+    "instagram_post_id": "18106028968903136",
+    "instagram_story_posted": true,
+    "instagram_story_id": "17950657304962871",
     "caption_image": "Cypress Update\nSunday, March 29\n\n1 new run open today\n  • Trumpeter\n\n1 chair closed from today\n  • Sky Quad",
     "caption_ig": "Cypress Update\nSunday, March 29\n\n1 new run open today\n  • Trumpeter\n\n1 chair closed from today\n  • Sky Quad\n\nLive map: https://harrmony.github.io/cypress-status-map/"
   }
