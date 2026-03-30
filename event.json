@@ -36,7 +36,7 @@
   },
   "placeholders": {
     "screenshot_path": null,
-    "instagram_posted": true,
+    "instagram_posted": false,
     "instagram_post_id": "17988183476791722",
     "instagram_story_posted": true,
     "instagram_story_id": "18083501156459794",
