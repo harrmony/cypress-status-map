@@ -36,10 +36,10 @@
   },
   "placeholders": {
     "screenshot_path": null,
-    "instagram_posted": false,
-    "instagram_post_id": null,
-    "instagram_story_posted": false,
-    "instagram_story_id": null,
+    "instagram_posted": true,
+    "instagram_post_id": "17988183476791722",
+    "instagram_story_posted": true,
+    "instagram_story_id": "18083501156459794",
     "caption_image": "Cypress Update\nMonday, March 30\n\n\n4 chairs closed from today\n  • Eagle Express\n  • Easy Rider\n  • Lions Express\n  • Sky Quad",
     "caption_ig": "Cypress Update\nMonday, March 30\n\n\n4 chairs closed from today\n  • Eagle Express\n  • Easy Rider\n  • Lions Express\n  • Sky Quad\n\nLive map: https://harrmony.github.io/cypress-status-map/"
   }
