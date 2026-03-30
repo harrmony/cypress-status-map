@@ -7,9 +7,9 @@ const URL = "https://www.cypressmountain.com/api/reportpal?resortName=cy&useRepo
 
 const TIME_ZONE = "America/Vancouver";
 
-// Months to run: Nov–May
+// Months to run: Nov–April
 function inSeason(month /* 1-12 */) {
-  return month === 11 || month === 12 || (month >= 1 && month <= 5);
+  return month === 11 || month === 12 || (month >= 1 && month <= 4);
 }
 
 // Get Vancouver-local parts (DST-safe)
@@ -409,9 +409,10 @@ history.snapshots = pruneSnapshots(history.snapshots, now);
 const todayParts = getTzParts(now, TIME_ZONE);
 const yesterdayParts = getTzParts(new Date(now.getTime() - 24 * 60 * 60 * 1000), TIME_ZONE);
 
+// UPDATED TO 12pm for SPRING HOURS - was 10am
 const target10amToday = zonedTimeToUtc({
   year: todayParts.year, month: todayParts.month, day: todayParts.day,
-  hour: 10, minute: 0, second: 0
+  hour: 12, minute: 0, second: 0
 }, TIME_ZONE);
 
 const target3pmYesterday = zonedTimeToUtc({
@@ -462,7 +463,8 @@ function nearestSnapshotAtOrAfterLocal(snapshots, dayParts, targetHour, targetMi
   return best; // null if nothing >= target within tolerance
 }
 
-const snapToday10Valid = nearestSnapshotAtOrAfterLocal(history.snapshots, todayParts, 10, 0, 600); // This sets it for 10am
+//ALSO SHIFTED TO 12pm for Spring - was 10am
+const snapToday10Valid = nearestSnapshotAtOrAfterLocal(history.snapshots, todayParts, 12, 0, 600); // This sets it for 10am
 
 
 
