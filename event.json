@@ -33,10 +33,10 @@
   },
   "placeholders": {
     "screenshot_path": null,
-    "instagram_posted": false,
-    "instagram_post_id": null,
-    "instagram_story_posted": false,
-    "instagram_story_id": null,
+    "instagram_posted": true,
+    "instagram_post_id": "18118613767635599",
+    "instagram_story_posted": true,
+    "instagram_story_id": "18016737656665666",
     "caption_image": "Cypress Update\nThursday, April 2\n\n1 new run open today\n  • Horizon By-Pass",
     "caption_ig": "Cypress Update\nThursday, April 2\n\n1 new run open today\n  • Horizon By-Pass\n\nLive map: https://harrmony.github.io/cypress-status-map/"
   }
