@@ -1,46 +1,43 @@
 {
-  "key": "2026-03-30_10am_vs_2026-03-29_3pm",
-  "created_at": "2026-03-30T17:39:02.457Z",
+  "key": "2026-04-02_10am_vs_2026-04-01_3pm",
+  "created_at": "2026-04-02T19:11:57.015Z",
   "compare": {
     "from": {
       "label": "yesterday_3pm",
-      "fetched_at": "2026-03-29T21:51:17.945Z"
+      "fetched_at": "2026-04-01T21:58:41.262Z"
     },
     "to": {
       "label": "today_10am",
-      "fetched_at": "2026-03-30T17:39:02.447Z"
+      "fetched_at": "2026-04-02T19:11:57.007Z"
     }
   },
   "summary": {
-    "opened_total": 0,
-    "closed_total": 4,
+    "opened_total": 1,
+    "closed_total": 0,
     "opened_lifts": 0,
-    "closed_lifts": 4,
-    "opened_trails": 0,
+    "closed_lifts": 0,
+    "opened_trails": 1,
     "closed_trails": 0
   },
   "details": {
     "lifts": {
       "opened": [],
-      "closed": [
-        "Eagle Express",
-        "Easy Rider",
-        "Lions Express",
-        "Sky Quad"
-      ]
+      "closed": []
     },
     "trails": {
-      "opened": [],
+      "opened": [
+        "Horizon By-Pass"
+      ],
       "closed": []
     }
   },
   "placeholders": {
     "screenshot_path": null,
-    "instagram_posted": true,
-    "instagram_post_id": "18120189019720555",
-    "instagram_story_posted": true,
-    "instagram_story_id": "18332000218220025",
-    "caption_image": "Cypress Update\nMonday, March 30\n\n\n4 chairs closed from today\n  • Eagle Express\n  • Easy Rider\n  • Lions Express\n  • Sky Quad",
-    "caption_ig": "Cypress Update\nMonday, March 30\n\n\n4 chairs closed from today\n  • Eagle Express\n  • Easy Rider\n  • Lions Express\n  • Sky Quad\n\nLive map: https://harrmony.github.io/cypress-status-map/"
+    "instagram_posted": false,
+    "instagram_post_id": null,
+    "instagram_story_posted": false,
+    "instagram_story_id": null,
+    "caption_image": "Cypress Update\nThursday, April 2\n\n1 new run open today\n  • Horizon By-Pass",
+    "caption_ig": "Cypress Update\nThursday, April 2\n\n1 new run open today\n  • Horizon By-Pass\n\nLive map: https://harrmony.github.io/cypress-status-map/"
   }
 }
