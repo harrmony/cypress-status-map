@@ -1,46 +1,45 @@
 {
-  "key": "2026-04-07_10am_vs_2026-04-06_3pm",
-  "created_at": "2026-04-07T19:44:02.940Z",
+  "key": "2026-04-10_10am_vs_2026-04-09_3pm",
+  "created_at": "2026-04-10T19:28:12.027Z",
   "compare": {
     "from": {
       "label": "yesterday_3pm",
-      "fetched_at": "2026-04-06T22:02:24.957Z"
+      "fetched_at": "2026-04-09T22:08:04.242Z"
     },
     "to": {
       "label": "today_10am",
-      "fetched_at": "2026-04-07T19:44:02.931Z"
+      "fetched_at": "2026-04-10T19:28:12.021Z"
     }
   },
   "summary": {
     "opened_total": 0,
-    "closed_total": 4,
+    "closed_total": 2,
     "opened_lifts": 0,
-    "closed_lifts": 0,
+    "closed_lifts": 1,
     "opened_trails": 0,
-    "closed_trails": 4
+    "closed_trails": 1
   },
   "details": {
     "lifts": {
       "opened": [],
-      "closed": []
+      "closed": [
+        "Sky Quad"
+      ]
     },
     "trails": {
       "opened": [],
       "closed": [
-        "3 Bears",
-        "Cascade",
-        "Lower Fork",
-        "Trumpeter"
+        "Unrun"
       ]
     }
   },
   "placeholders": {
     "screenshot_path": null,
-    "instagram_posted": true,
-    "instagram_post_id": "18100888603769526",
-    "instagram_story_posted": true,
-    "instagram_story_id": "18079457900110949",
-    "caption_image": "Cypress Update\nTuesday, April 7\n\n\n4 runs closed from today\n  • 3 Bears\n  • Cascade\n  • Lower Fork\n  • Trumpeter",
-    "caption_ig": "Cypress Update\nTuesday, April 7\n\n\n4 runs closed from today\n  • 3 Bears\n  • Cascade\n  • Lower Fork\n  • Trumpeter\n\nLive map: https://harrmony.github.io/cypress-status-map/"
+    "instagram_posted": false,
+    "instagram_post_id": null,
+    "instagram_story_posted": false,
+    "instagram_story_id": null,
+    "caption_image": "Cypress Update\nFriday, April 10\n\n\n1 chair closed from today\n  • Sky Quad\n\n1 run closed from today\n  • Unrun",
+    "caption_ig": "Cypress Update\nFriday, April 10\n\n\n1 chair closed from today\n  • Sky Quad\n\n1 run closed from today\n  • Unrun\n\nLive map: https://harrmony.github.io/cypress-status-map/"
   }
 }
