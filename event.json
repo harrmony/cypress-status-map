@@ -33,10 +33,10 @@
   },
   "placeholders": {
     "screenshot_path": null,
-    "instagram_posted": false,
-    "instagram_post_id": null,
-    "instagram_story_posted": false,
-    "instagram_story_id": null,
+    "instagram_posted": true,
+    "instagram_post_id": "18118258555725564",
+    "instagram_story_posted": true,
+    "instagram_story_id": "18078250097430127",
     "caption_image": "Cypress Update\nSunday, April 12\n\n\n1 chair closed from today\n  • Sky Quad",
     "caption_ig": "Cypress Update\nSunday, April 12\n\n\n1 chair closed from today\n  • Sky Quad\n\nLive map: https://harrmony.github.io/cypress-status-map/"
   }
