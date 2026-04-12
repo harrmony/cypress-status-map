@@ -1,23 +1,23 @@
 {
-  "key": "2026-04-10_10am_vs_2026-04-09_3pm",
-  "created_at": "2026-04-10T19:28:12.027Z",
+  "key": "2026-04-12_10am_vs_2026-04-11_3pm",
+  "created_at": "2026-04-12T19:27:40.204Z",
   "compare": {
     "from": {
       "label": "yesterday_3pm",
-      "fetched_at": "2026-04-09T22:08:04.242Z"
+      "fetched_at": "2026-04-11T21:54:22.898Z"
     },
     "to": {
       "label": "today_10am",
-      "fetched_at": "2026-04-10T19:28:12.021Z"
+      "fetched_at": "2026-04-12T19:27:40.198Z"
     }
   },
   "summary": {
     "opened_total": 0,
-    "closed_total": 2,
+    "closed_total": 1,
     "opened_lifts": 0,
     "closed_lifts": 1,
     "opened_trails": 0,
-    "closed_trails": 1
+    "closed_trails": 0
   },
   "details": {
     "lifts": {
@@ -28,18 +28,16 @@
     },
     "trails": {
       "opened": [],
-      "closed": [
-        "Unrun"
-      ]
+      "closed": []
     }
   },
   "placeholders": {
     "screenshot_path": null,
-    "instagram_posted": true,
-    "instagram_post_id": "18166898083415659",
-    "instagram_story_posted": true,
-    "instagram_story_id": "17877158856565208",
-    "caption_image": "Cypress Update\nFriday, April 10\n\n\n1 chair closed from today\n  • Sky Quad\n\n1 run closed from today\n  • Unrun",
-    "caption_ig": "Cypress Update\nFriday, April 10\n\n\n1 chair closed from today\n  • Sky Quad\n\n1 run closed from today\n  • Unrun\n\nLive map: https://harrmony.github.io/cypress-status-map/"
+    "instagram_posted": false,
+    "instagram_post_id": null,
+    "instagram_story_posted": false,
+    "instagram_story_id": null,
+    "caption_image": "Cypress Update\nSunday, April 12\n\n\n1 chair closed from today\n  • Sky Quad",
+    "caption_ig": "Cypress Update\nSunday, April 12\n\n\n1 chair closed from today\n  • Sky Quad\n\nLive map: https://harrmony.github.io/cypress-status-map/"
   }
 }
