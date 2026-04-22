@@ -1,43 +1,56 @@
 {
-  "key": "2026-04-12_10am_vs_2026-04-11_3pm",
-  "created_at": "2026-04-12T19:27:40.204Z",
+  "key": "2026-04-22_10am_vs_2026-04-21_3pm",
+  "created_at": "2026-04-22T19:57:37.314Z",
   "compare": {
     "from": {
       "label": "yesterday_3pm",
-      "fetched_at": "2026-04-11T21:54:22.898Z"
+      "fetched_at": "2026-04-21T22:09:30.230Z"
     },
     "to": {
       "label": "today_10am",
-      "fetched_at": "2026-04-12T19:27:40.198Z"
+      "fetched_at": "2026-04-22T19:57:37.306Z"
     }
   },
   "summary": {
     "opened_total": 0,
-    "closed_total": 1,
+    "closed_total": 14,
     "opened_lifts": 0,
-    "closed_lifts": 1,
+    "closed_lifts": 0,
     "opened_trails": 0,
-    "closed_trails": 0
+    "closed_trails": 14
   },
   "details": {
     "lifts": {
       "opened": [],
-      "closed": [
-        "Sky Quad"
-      ]
+      "closed": []
     },
     "trails": {
       "opened": [],
-      "closed": []
+      "closed": [
+        "Cat Track (upper)",
+        "Collins",
+        "Fork",
+        "Glades",
+        "Horizon",
+        "Horsefly Canyon",
+        "Humpty Dumpty",
+        "Hutch",
+        "PGS",
+        "Panorama",
+        "Runway",
+        "T-33",
+        "Tomcat",
+        "Windjammer"
+      ]
     }
   },
   "placeholders": {
     "screenshot_path": null,
-    "instagram_posted": true,
-    "instagram_post_id": "18118258555725564",
-    "instagram_story_posted": true,
-    "instagram_story_id": "18078250097430127",
-    "caption_image": "Cypress Update\nSunday, April 12\n\n\n1 chair closed from today\n  • Sky Quad",
-    "caption_ig": "Cypress Update\nSunday, April 12\n\n\n1 chair closed from today\n  • Sky Quad\n\nLive map: https://harrmony.github.io/cypress-status-map/"
+    "instagram_posted": false,
+    "instagram_post_id": null,
+    "instagram_story_posted": false,
+    "instagram_story_id": null,
+    "caption_image": "Cypress Update\nWednesday, April 22\n\n\n14 runs closed from today\n  • Cat Track (upper)\n  • Collins\n  • Fork\n  • Glades\n  • Horizon\n  • Horsefly Canyon\n  • Humpty Dumpty\n  • Hutch\n  • PGS\n  • Panorama\n  • Runway\n  • T-33\n  • Tomcat\n  • Windjammer",
+    "caption_ig": "Cypress Update\nWednesday, April 22\n\n\n14 runs closed from today\n  • Cat Track (upper)\n  • Collins\n  • Fork\n  • Glades\n  • Horizon\n  • Horsefly Canyon\n  • Humpty Dumpty\n  • Hutch\n  • PGS\n  • Panorama\n  • Runway\n  • T-33\n  • Tomcat\n  • Windjammer\n\nLive map: https://harrmony.github.io/cypress-status-map/"
   }
 }
